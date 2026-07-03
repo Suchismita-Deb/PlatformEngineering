@@ -15,3 +15,12 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+In cmd project folder - mkdocs new project-name 
+Push to git.
+
+pip install mkdocs-material
+pip install ghp-import
+mkdocs gh-deploy
+
+https://suchismita-deb.github.io/PlatformEngineering/
