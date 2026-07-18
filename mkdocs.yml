@@ -1,11 +1,14 @@
-site_name: My Docs
+site_name: Platform Engineering.
 
 nav:
   - Home: index.md
   - Kubernetes:
       - Fundamentals: Kubernetes/01KubernetesFundamental.md
+      - Kubernetes Command: Kubernetes/Kubernetes.md
   - Platform Engineering:
       - Fundamentals: PlatformEngineering.md
+  - Linux:
+      - Fundamentals: Linux/Fundamental.md
   - Cloud Engineering:
       - Fundamentals: CloudEngineering.md
   - DevOps:
@@ -33,14 +36,14 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: amber
+      accent: amber
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: teal
-      accent: teal
+      primary: amber
+      accent: amber
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
