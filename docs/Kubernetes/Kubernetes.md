@@ -826,3 +826,5 @@ spec: # Dictionary
           ports:
             - containerPort: 80
 ```
+https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+Section 15.
