@@ -407,7 +407,7 @@ Create the deployment to rollout the Replicaset. Verify the deployment, replicas
 When we create a deployment it will roll out a replicaset.
 ```yaml
 # Create Deployment - In the terminal.
-kubectl create deployment <Deplyment-Name> --image=<Container-Image>
+kubectl create deployment <Deployment-Name> --image=<Container-Image>
 kubectl create deployment my-first-deployment --image=stacksimplify/kubenginx:1.0.0 
 
 # Verify Deployment
@@ -688,7 +688,7 @@ kubectl delete svc my-first-deployment-service
 
 We have creates Kubernetes Service of type LoadBalancer to access the application externally. There are many services - ClusterIp Service, NodePort Service, Headless Service, LoadBalancer Service, ExternalName Service and Ingress Service.
 
-Cluster IP (default): Used for internal communication between applications inside a Kubernetes cluster with a stable internal IP.
+Cluster IP (default): Used for internal communication between applications inside a Kubernetes cluster with a stable internal IP. The default is the Cluster Ip service.
 
 NodePort: Clients send requests to the IP address of a worker node on one or more nodePort values that are specified by the Service.
 
@@ -805,26 +805,151 @@ The pod label that is created is in the selector app.
 ### Kubernetes ReplicaSet manifest in yaml - declarative.
 
 ```yaml
-apiVersion: apps/v1
+apiVersion: apps/v1 # Replica Set API version in the Kubernetes API reference.
 kind: ReplicaSet
 metadata: # Dictionary
   name: myapp2-rs
 spec: # Dictionary
   replicas: 3
   selector:
-    matchLabels:
-      app: myapp2
+    matchLabels: # LabelSelector in the document and the matchLAbel is a key value pair. The pod label should match the selector key value.
+      app: myapp2 # The label should match the loadbalancer service then it the request to the loadbalancer service will be forwarded to the pods created by the replicaset.
   template:
     metadata: # Dictionary
       name: myapp2-pod
       labels: # Dictionary
         app: myapp2  # Key value pairs
     spec:
-      containers: # List
+      containers: # List The pod things like the container.
         - name: myapp2-container
           image: stacksimplify/kubenginx:2.0.0
           ports:
             - containerPort: 80
 ```
 https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
-Section 15.
+To run the replicaset `kubectl create -f replicaset-demo.yml` to see the replica set `kubectl get rs` and pods name `kubectl get pod` and to delete the replicaset `kubectl delete -f replicaset-demo.yml`
+
+To test the replicaset we need to create a loadbalancer service and the selector should match the pod label of the replicaset. 
+
+```yaml
+apiVersion: v1
+kind: Service       
+metadata:
+  name: replicaset-loadbalancer-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: myapp2    # The name should match with the name of the replicaset selector label.
+  ports:
+    - name: http
+      port: 80 # Service Port.
+      targetPort: 80 # Container port.
+```
+
+### Kubernetes Deployment manifest in yaml - declarative.
+
+Deployment is a superset of replicaset and it will create the replicaset and the pods. The deployment will have more features than replicaset.
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp3-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp3
+  template:
+    metadata:
+      name: myapp3-pod
+      labels:
+        app: myapp3
+    spec:
+      containers:
+        - name: myapp3-container
+          image: stacksimplify/kubenginx:3.0.0
+          ports:
+            - containerPort: 80
+```
+
+### Service.
+#### NodePort Service.
+NodePort Service - It allows external clients to access pods via network ports opened on the Kubernetes nodes.  
+
+In case GKE cluster is a public cluster and the nodes have the external IP port then the GKE cluster nodes are internet accessible and Nodeport service is applicable.  
+
+Nodeport range 30000-32768 on Kubernetes Nodes (range are customizable).
+
+In real-world, NodePort Services are not used in production grade implementations.
+
+NodePort Services are generally used to test our application by external clients via Internet provided our Kubernetes Nodes are at internet edge.
+
+NodePortServices.png
+
+The Nodeport services is deployed and the external Ip is used to connect to the pod. The image is as per the Kubernetes architecture.
+
+NodePortGKE.png
+
+When we deploy the Nodeport service same like any service yaml. The application url will give timeout error. The url `http://<NODE_EXTERNAL_IP>:<NodePort>` will give timeout error. The reason is the firewall rules are not allowing the port to be accessed. The firewall rules need to be created to allow the Nodeport range 30000-32768.
+
+Create the firewall rules.
+```yaml
+# Create Firewall Rule
+gcloud compute firewall-rules create fw-rule-gke-node-port \
+  --allow tcp:NODE_PORT
+
+# Replace NODE_PORT
+gcloud compute firewall-rules create fw-rule-gke-node-port \
+  --allow tcp:30080
+
+# List Firewall Rules
+gcloud compute firewall-rules list
+
+```
+In the console in VPC network will see the firewall rules. 
+```yaml
+# Delete Kubernetes Resources
+kubectl delete -f kube-manifests
+
+# Delete NodePort Service Firewall Rule
+gcloud compute firewall-rules delete fw-rule-gke-node-port
+
+# List Firewall Rules
+gcloud compute firewall-rules list
+```
+
+#### Headless Service.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp1-headless-service
+spec:
+  #type: ClusterIP # ClusterIP, # NodePort
+  clusterIP: None # The clusterIP should be Node.
+  selector:
+    app: myapp1
+  ports:
+    - name: http
+      port: 8080 # Service Port 
+      targetPort: 8080 # Container Port # When using Headless Service, we should use both the ‘Service Port and Target Port’ same.
+```
+
+Headless Service directly sends traffic to Pod with Pod IP and Container Port. DNS resolution directly happens from headless service to Pod IP.
+
+```yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl-pod
+spec:
+  containers:
+    - name: curl
+      image: curlimages/curl
+      command: [ "sleep", "600" ]
+
+```
+We cannot connect to ClusterIP Services directly from internet to test Headless Service Concept.
+We will deploy a curl pod in GKE Cluster so we can connect to curl pod in GKE Cluster and test the Headless Service Concept.

@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - Kubernetes:
       - Fundamentals: Kubernetes/01KubernetesFundamental.md
+      - Kubernetes Interview: Kubernetes/KubernetesInterview.md
       - Kubernetes Command: Kubernetes/Kubernetes.md
   - Platform Engineering:
       - Fundamentals: PlatformEngineering.md
