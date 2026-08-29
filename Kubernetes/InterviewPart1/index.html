@@ -1,0 +1,1663 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Kubernetes/">
+      
+      
+        <link rel="next" href="../../Linux/Fundamental/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Kubernetes Interview Part 1 - Platform Engineering.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-application-will-be-hosted-that-expect-to-server-5-million-concurrent-users-how-to-design-and-what-are-the-services-and-tools-to-use" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Platform Engineering." class="md-header__button md-logo" aria-label="Platform Engineering." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Platform Engineering.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kubernetes Interview Part 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01KubernetesFundamental/" class="md-tabs__link">
+          
+  
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PlatformEngineering.md" class="md-tabs__link">
+          
+  
+  
+  Platform Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Linux/Fundamental/" class="md-tabs__link">
+          
+  
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CloudEngineering.md" class="md-tabs__link">
+          
+  
+  
+  Cloud Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DevOps/01DevOpsFundamentl/" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../HandsOn.md" class="md-tabs__link">
+          
+  
+  
+  Hands-On
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../InterviewQuestions.md" class="md-tabs__link">
+          
+  
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Platform Engineering." class="md-nav__button md-logo" aria-label="Platform Engineering." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Platform Engineering.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01KubernetesFundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KubernetesInterview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview Part 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-application-will-be-hosted-that-expect-to-server-5-million-concurrent-users-how-to-design-and-what-are-the-services-and-tools-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The application will be hosted that expect to server 5 million concurrent users. How to design and what are the services and tools to use.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-is-running-yu-notices-sudden-traffic-spike-in-10x-how-to-determine-its-good-or-ddos-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application is running. Yu notices sudden traffic spike in 10x. How to determine its good or ddos traffic.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-kubernetes-has-3-namespace-in-the-same-cluster-how-would-you-prevent-the-dev-namespace-from-the-prod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Kubernetes has 3 namespace in the same cluster. How would you prevent the dev namespace from the prod.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#created-any-deployment-services-ingress-egress-from-the-yaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Created any deployment, services, ingress, egress from the yaml file.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Created any deployment, services, ingress, egress from the yaml file.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-internally-when-we-do-the-kubectl-apply-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens internally when we do the kubectl apply -f?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-teh-etcd-on-the-masterplane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is teh etcd on the masterplane.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-kubernetes-pick-etcd-instead-of-any-other-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Kubernetes pick etcd instead of any other db?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-application-is-hosted-in-gke-how-does-the-request-reaches-your-pod-when-the-user-use-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The application is hosted in GKE. How does the request reaches your pod when the user use the application.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-some-achievement-like-migrated-500tb-of-data-in-s3-bucket-from-one-aws-account-to-another-its-an-aws-data-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of some achievement like migrated 500Tb of data in S3 bucket from one AWS account to another- Its an AWS data sync.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#give-an-example-of-the-cicd-pipeline-that-you-have-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Give an example of the CICD pipeline that you have build.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-you-used-the-rolling-update-and-not-canary-deployment-itthe-new-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why you used the rolling update and not canary deployment itthe new trend.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-commits-the-aws-access-key-in-making-the-cicd-pipeline-any-config-that-will-help-what-immediate-action-you-should-take-and-how-would-you-prevent-from-happening-it-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Developer commits the AWS access key. In making the CICD pipeline any config that will help. What immediate action you should take and how would you prevent from happening it further.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-application-is-deployed-and-the-application-showing-green-deployment-and-user-mentioned-that-they-are-facing-502-gateway-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The application is deployed and the application showing green deployment and user mentioned that they are facing 502 gateway error.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PlatformEngineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CloudEngineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/01DevOpsFundamentl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HandsOn.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InterviewQuestions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-application-will-be-hosted-that-expect-to-server-5-million-concurrent-users-how-to-design-and-what-are-the-services-and-tools-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The application will be hosted that expect to server 5 million concurrent users. How to design and what are the services and tools to use.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-is-running-yu-notices-sudden-traffic-spike-in-10x-how-to-determine-its-good-or-ddos-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application is running. Yu notices sudden traffic spike in 10x. How to determine its good or ddos traffic.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-kubernetes-has-3-namespace-in-the-same-cluster-how-would-you-prevent-the-dev-namespace-from-the-prod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Kubernetes has 3 namespace in the same cluster. How would you prevent the dev namespace from the prod.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#created-any-deployment-services-ingress-egress-from-the-yaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Created any deployment, services, ingress, egress from the yaml file.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Created any deployment, services, ingress, egress from the yaml file.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-internally-when-we-do-the-kubectl-apply-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens internally when we do the kubectl apply -f?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-teh-etcd-on-the-masterplane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is teh etcd on the masterplane.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-kubernetes-pick-etcd-instead-of-any-other-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Kubernetes pick etcd instead of any other db?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-application-is-hosted-in-gke-how-does-the-request-reaches-your-pod-when-the-user-use-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The application is hosted in GKE. How does the request reaches your pod when the user use the application.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-some-achievement-like-migrated-500tb-of-data-in-s3-bucket-from-one-aws-account-to-another-its-an-aws-data-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of some achievement like migrated 500Tb of data in S3 bucket from one AWS account to another- Its an AWS data sync.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#give-an-example-of-the-cicd-pipeline-that-you-have-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Give an example of the CICD pipeline that you have build.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-you-used-the-rolling-update-and-not-canary-deployment-itthe-new-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why you used the rolling update and not canary deployment itthe new trend.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-commits-the-aws-access-key-in-making-the-cicd-pipeline-any-config-that-will-help-what-immediate-action-you-should-take-and-how-would-you-prevent-from-happening-it-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Developer commits the AWS access key. In making the CICD pipeline any config that will help. What immediate action you should take and how would you prevent from happening it further.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-application-is-deployed-and-the-application-showing-green-deployment-and-user-mentioned-that-they-are-facing-502-gateway-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The application is deployed and the application showing green deployment and user mentioned that they are facing 502 gateway error.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../01KubernetesFundamental/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Kubernetes Interview Part 1</h1>
+
+<p>I have 5 yoe in designing, building, operating scalable and highly available cloud platform. The main expertise lies in implementing the key pillars of devops like automation, cicd, iaas, monitoring and security.</p>
+<p>I have worked in designing cloud native platform, kubernetes based environment and end-to-end CICD ecosystem for enterprise application.</p>
+<p>In the space of governance I have implemented secured multi-cloud architecture, centralized access management solution aligned with compliances like GDPR and HIPPA.</p>
+<h3 id="the-application-will-be-hosted-that-expect-to-server-5-million-concurrent-users-how-to-design-and-what-are-the-services-and-tools-to-use">The application will be hosted that expect to server 5 million concurrent users. How to design and what are the services and tools to use.</h3>
+<p>To design the cloud architecture I have to understand the application - stateful or stateless.  <br />
+To understand the expected traffic pattern, the db requirement, compliance and latency expectation.</p>
+<p>In high level architecture - there will be Route 53 for the DNS and CloudFront for CDN and caching. We have to use web and shield for security. To distribute traffic we can create load balancer. You are going with the containerization then GKE.</p>
+<p>ECS when architecture is not complex.</p>
+<h3 id="application-is-running-yu-notices-sudden-traffic-spike-in-10x-how-to-determine-its-good-or-ddos-traffic">Application is running. Yu notices sudden traffic spike in 10x. How to determine its good or ddos traffic.</h3>
+<p>In the debugging step first see the access log, source Ip and the request pattern, geo location and the request path. </p>
+<p>The traffic coming from diverse real users with normal behaviour and valid application request its a good traffic. Scale up the application using auto scaling.</p>
+<p>Large repetitive request from suspicious IP or unusual user agent and targetting to single endpoint then its a attack.</p>
+<p>To mitigate will use AWS shield and rate limiting.</p>
+<h3 id="the-kubernetes-has-3-namespace-in-the-same-cluster-how-would-you-prevent-the-dev-namespace-from-the-prod">The Kubernetes has 3 namespace in the same cluster. How would you prevent the dev namespace from the prod.</h3>
+<p>In general we have the different cluster for different environment. In case we have all the env in single cluster then there we will Kubernetes network policy to restrict the cross - namespace communication. The first step to deny all the ingress and egress connection between the traffic and make the required communication between the env.</p>
+<h2 id="created-any-deployment-services-ingress-egress-from-the-yaml-file">Created any deployment, services, ingress, egress from the yaml file.</h2>
+<p>We are creating it starting from the scratch and we are working in the helm chart format.</p>
+<h3 id="what-happens-internally-when-we-do-the-kubectl-apply-f">What happens internally when we do the kubectl apply -f?</h3>
+<p>Kubernetes read the yaml manifest and read the request and send to the kubeAPI and it will do the authorization and authentication and then send the data to the etcd. The scheduler assign the port to the worker node. The kubelet on teh specific node get the instruction and ask the container runtime to create the container. The port starts running and the controller ensure that the desired state is maintainer.</p>
+<h3 id="what-is-teh-etcd-on-the-masterplane">What is teh etcd on the masterplane.</h3>
+<p>It is the database where it store the data of everything. </p>
+<h3 id="why-kubernetes-pick-etcd-instead-of-any-other-db">Why Kubernetes pick etcd instead of any other db?</h3>
+<h3 id="the-application-is-hosted-in-gke-how-does-the-request-reaches-your-pod-when-the-user-use-the-application">The application is hosted in GKE. How does the request reaches your pod when the user use the application.</h3>
+<p>When an user request in the website it reaches the DNC it can be route 53 or GoDaddy and it get the domain from there and reaches the application load balancer and forward the request to the kubernetes ingress controller. The ingress route the request to the service and the service forward it to the healthy pod using kube proxy.</p>
+<h3 id="example-of-some-achievement-like-migrated-500tb-of-data-in-s3-bucket-from-one-aws-account-to-another-its-an-aws-data-sync">Example of some achievement like migrated 500Tb of data in S3 bucket from one AWS account to another- Its an AWS data sync.</h3>
+<p>The achievement part is how we verify that all data has been migrated without missing any object. To solve that issue the system used AWS inventory that generates the csv file format containing all the object in a bucket. Then loaded the inventory into the dynamodb and compare the source and the destination inventory to identify any missing data.</p>
+<h3 id="give-an-example-of-the-cicd-pipeline-that-you-have-build">Give an example of the CICD pipeline that you have build.</h3>
+<p>The approach is similar for all the tools and the technologies. The developer will push the code and the pipeline will be triggered. It will pull the latest code from the git and run the unit test cases and perform the code quality using the sonarqube. When creating the image will use some vulnerability scanning tool like Trivy and then it pushes the image to the ECR. The CD part we have different repositories and there we update the image tag in the github repository. </p>
+<p>The ArgoCD detect the change and synchronize with the Kubernetes cluster. The application deployed using the rolling update strategies and post deployment the health checks were performed before marking the deployment as successful.</p>
+<h3 id="why-you-used-the-rolling-update-and-not-canary-deployment-itthe-new-trend">Why you used the rolling update and not canary deployment itthe new trend.</h3>
+<h3 id="developer-commits-the-aws-access-key-in-making-the-cicd-pipeline-any-config-that-will-help-what-immediate-action-you-should-take-and-how-would-you-prevent-from-happening-it-further">Developer commits the AWS access key. In making the CICD pipeline any config that will help. What immediate action you should take and how would you prevent from happening it further.</h3>
+<p>First step to rotate the key and it cannot be used anymore. In the cloud will see the cloud trail and see any suspicious activity happened using the key.</p>
+<p>In the pipeline we can integrate Git secret or Git leak into the pipeline to detect any secret getting pushed or not before the code is getting merged.</p>
+<p>The solution is to use Google secret manager.</p>
+<h3 id="the-application-is-deployed-and-the-application-showing-green-deployment-and-user-mentioned-that-they-are-facing-502-gateway-error">The application is deployed and the application showing green deployment and user mentioned that they are facing 502 gateway error.</h3>
+<p>Logs of pod and pods are running or not. The readiness and liveliness probe. The services are pointing to the healthy pods or not. In case that is correct see the ingress controller and the load balancer to see where the error is generated</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.tabs.sticky", "navigation.expand", "navigation.path", "toc.follow", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.mermaid"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

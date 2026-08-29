@@ -1,0 +1,2342 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../KubernetesInterview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Fundamentals - Platform Engineering.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-kubernetes-and-what-problem-does-it-solved" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Platform Engineering." class="md-header__button md-logo" aria-label="Platform Engineering." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Platform Engineering.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fundamentals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PlatformEngineering.md" class="md-tabs__link">
+          
+  
+  
+  Platform Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Linux/Fundamental/" class="md-tabs__link">
+          
+  
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CloudEngineering.md" class="md-tabs__link">
+          
+  
+  
+  Cloud Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DevOps/01DevOpsFundamentl/" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../HandsOn.md" class="md-tabs__link">
+          
+  
+  
+  Hands-On
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../InterviewQuestions.md" class="md-tabs__link">
+          
+  
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Platform Engineering." class="md-nav__button md-logo" aria-label="Platform Engineering." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Platform Engineering.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-kubernetes-and-what-problem-does-it-solved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Kubernetes and what problem does it solved?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The core chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-this-is-what-actually-gets-tested-in-interviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging — this is what actually gets tested in interviews
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-pod-shows-running-but-the-service-never-routes-traffic-to-it-whats-the-first-thing-you-check-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A pod shows Running but the Service never routes traffic to it. What's the first thing you check, and why?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-the-three-types-and-when-each-is-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services — the three types, and when each is real
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configmaps-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfigMaps &amp; Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingress
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-updates-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling updates &amp; rollback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoscaling-hpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoscaling (HPA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-exercise-do-this-before-we-move-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build exercise (do this before we move on)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-metrics-server-isnt-installed-or-is-broken-the-common-one-on-freshself-managed-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. metrics-server isn't installed or is broken (the common one on fresh/self-managed clusters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-pods-have-no-resourcesrequestscpu-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The pods have no resources.requests.cpu set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-updates-rollback-full-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling updates &amp; rollback — full mechanics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-exact-math-behind-maxsurge-maxunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The exact math behind maxSurge / maxUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minreadyseconds-the-probe-isnt-always-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        minReadySeconds — the probe isn't always enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressdeadlineseconds-how-a-stuck-rollout-gets-flagged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        progressDeadlineSeconds — how a stuck rollout gets flagged.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-history-what-rollout-undo-actually-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision history — what rollout undo actually does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recreate-strategy-the-other-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recreate strategy — the other option
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-a-stuck-rollout-the-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging a stuck rollout — the sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#you-set-maxunavailable-0-and-maxsurge-1-on-a-3-replica-deployment-but-your-cluster-only-has-exactly-enough-free-cpumemory-for-3-pods-none-spare-what-happens-when-you-trigger-the-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        you set maxUnavailable: 0 and maxSurge: 1 on a 3-replica Deployment, but your cluster only has exactly enough free CPU/memory for 3 pods, none spare. What happens when you trigger the rollout?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-the-rollout-gets-stuck-but-nothing-goes-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens: the rollout gets stuck, but nothing goes down
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-observe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you'll observe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-recovery-is-almost-free-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The recovery is almost free here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Networking.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Services.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Services.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Kubernetes Service?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-type-of-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The type of services.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KubernetesInterview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InterviewPart1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PlatformEngineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CloudEngineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/01DevOpsFundamentl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HandsOn.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InterviewQuestions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-kubernetes-and-what-problem-does-it-solved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Kubernetes and what problem does it solved?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The core chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-this-is-what-actually-gets-tested-in-interviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging — this is what actually gets tested in interviews
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-pod-shows-running-but-the-service-never-routes-traffic-to-it-whats-the-first-thing-you-check-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A pod shows Running but the Service never routes traffic to it. What's the first thing you check, and why?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services-the-three-types-and-when-each-is-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services — the three types, and when each is real
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configmaps-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfigMaps &amp; Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingress
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-updates-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling updates &amp; rollback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoscaling-hpa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoscaling (HPA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-exercise-do-this-before-we-move-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build exercise (do this before we move on)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-metrics-server-isnt-installed-or-is-broken-the-common-one-on-freshself-managed-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. metrics-server isn't installed or is broken (the common one on fresh/self-managed clusters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-pods-have-no-resourcesrequestscpu-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The pods have no resources.requests.cpu set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-updates-rollback-full-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling updates &amp; rollback — full mechanics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-exact-math-behind-maxsurge-maxunavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The exact math behind maxSurge / maxUnavailable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minreadyseconds-the-probe-isnt-always-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        minReadySeconds — the probe isn't always enough
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressdeadlineseconds-how-a-stuck-rollout-gets-flagged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        progressDeadlineSeconds — how a stuck rollout gets flagged.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-history-what-rollout-undo-actually-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision history — what rollout undo actually does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recreate-strategy-the-other-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recreate strategy — the other option
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-a-stuck-rollout-the-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging a stuck rollout — the sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#you-set-maxunavailable-0-and-maxsurge-1-on-a-3-replica-deployment-but-your-cluster-only-has-exactly-enough-free-cpumemory-for-3-pods-none-spare-what-happens-when-you-trigger-the-rollout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        you set maxUnavailable: 0 and maxSurge: 1 on a 3-replica Deployment, but your cluster only has exactly enough free CPU/memory for 3 pods, none spare. What happens when you trigger the rollout?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-the-rollout-gets-stuck-but-nothing-goes-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens: the rollout gets stuck, but nothing goes down
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-observe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you'll observe
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-recovery-is-almost-free-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The recovery is almost free here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Networking.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Services.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Services.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Kubernetes Service?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-type-of-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The type of services.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Fundamentals</h1>
+
+<h3 id="what-is-kubernetes-and-what-problem-does-it-solved">What is Kubernetes and what problem does it solved?</h3>
+<p>Kubernetes is a container orchestration platform that runs containerized workload reliably at scale. Containers in theory are not the hard part the hard part is everything around them in production for example making sure deployments are safe, scaling is predictable, recovery from failure is guaranteed and network is stable.</p>
+<p>Without kubernetes there the system included manual effort to see the processes. Kubernetes replaces the control loop - it provides a model to declare the state (The desired state is what we declare in the manifest example 3 replicas of the app, the image, the resource limit) and a controller continuously reconciles the reality to match the desired state. Kubernetes object in this way. </p>
+<p>The desired state is handled by controller running control loops example the deployment is handled by the deployment controller which create and updates replica sets and the replica sets are responsible to keep the right number of pods running. </p>
+<h3 id="the-core-chain">The core chain</h3>
+<p><strong>Pod</strong> → smallest deployable unit. One or more containers sharing an IP and storage. In practice, 1 container per pod (sidecars are the exception, not the rule). Pods are disposable — they don't self-heal, and they get a new IP every time they're recreated.</p>
+<p><strong>Deployment</strong> → manages a ReplicaSet, which manages Pods. You declare "keep 3 replicas of this spec alive" and it handles creation, replacement of dead pods, rolling updates, and rollbacks.</p>
+<p><strong>Service</strong> → a stable network identity in front of a set of pods (matched by label selector), since pod IPs are throwaway. This is how one pod talks to another reliably.</p>
+<p>So: <code>Deployment → ReplicaSet → Pods</code>, and separately <code>Service → (label selector) → Pods</code>.</p>
+<p>Minimal Manifest.
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">apiVersion</span><span class="o">:</span><span class="w"> </span><span class="nx">apps</span><span class="o">/</span><span class="nx">v1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="nx">Deployment</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">metadata</span><span class="o">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">api</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nx">spec</span><span class="o">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">replicas</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nx">matchLabels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nx">template</span><span class="o">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nx">metadata</span><span class="o">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="o">:</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nx">spec</span><span class="o">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nx">containers</span><span class="o">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">api</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="nx">myorg</span><span class="o">/</span><span class="nx">api</span><span class="o">:</span><span class="mf">1.4</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nx">resources</span><span class="o">:</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">          </span><span class="nx">requests</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">cpu</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;200m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">memory</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;256Mi&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">          </span><span class="nx">limits</span><span class="o">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">cpu</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;500m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">memory</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;512Mi&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="nx">readinessProbe</span><span class="o">:</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">          </span><span class="nx">httpGet</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="err">/healthz, port: 8080 }</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">          </span><span class="nx">initialDelaySeconds</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="nx">livenessProbe</span><span class="o">:</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">          </span><span class="nx">httpGet</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="err">/healthz, port: 8080 }</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">          </span><span class="nx">initialDelaySeconds</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span>
+</span></code></pre></div></p>
+<p><code>requests</code> = what the scheduler reserves for the pod. <code>limits</code> = the hard ceiling. Get the gap wrong and you get evictions or OOMKills — this is where most junior mistakes live.</p>
+<p><code>kubectl apply -f deploy.yaml</code> → <code>kubectl get pods</code> → <code>kubectl describe pod &lt;name&gt;</code> → <code>kubectl logs &lt;name&gt;</code>. That four-command sequence is 80% of daily K8s work.</p>
+<h3 id="debugging-this-is-what-actually-gets-tested-in-interviews">Debugging — this is what actually gets tested in interviews</h3>
+<p><strong>CrashLoopBackOff</strong>: container starts, dies, K8s restarts it, backoff timer increases each time.</p>
+<ul>
+<li>Check <code>kubectl logs &lt;pod&gt; --previous</code> (the crashed container's logs, not the new one).</li>
+<li>Common causes: missing env var/config, app throws on startup, wrong <code>command</code>/<code>ENTRYPOINT</code>.</li>
+</ul>
+<p><strong>OOMKilled</strong> (exit code 137): container hit its memory <code>limit</code>, kernel's cgroup killer took it out.</p>
+<ul>
+<li><code>kubectl describe pod</code> → look for <code>Last State: Terminated, Reason: OOMKilled</code>.</li>
+<li>Cause is either a real leak, or <code>limits.memory</code> set too tight for actual usage.</li>
+</ul>
+<p><strong>ImagePullBackOff</strong>: bad image name/tag, or missing registry auth (<code>imagePullSecrets</code>).</p>
+<p><strong>Pending</strong> (never scheduled): no node has enough free CPU/memory, or a taint/nodeSelector mismatch, or an unbound PersistentVolumeClaim.</p>
+<h3 id="a-pod-shows-running-but-the-service-never-routes-traffic-to-it-whats-the-first-thing-you-check-and-why">A pod shows Running but the Service never routes traffic to it. What's the first thing you check, and why?</h3>
+<p><strong>The key insight you're missing: <code>Running</code> ≠ <code>Ready</code>.</strong></p>
+<p><code>Running</code> just means the container process started. <code>Ready</code> means the <strong>readiness probe</strong> is passing. A Service only sends traffic to pods that are <code>Ready</code> — it never even looks at whether the container is "Running." So a pod can sit there Running forever, healthy-looking, and get zero traffic because its <code>/healthz</code> endpoint is returning 500, or the app takes 30s to warm up but your <code>initialDelaySeconds</code> is 5.</p>
+<p><strong>The actual debug sequence for "Running but no traffic":</strong></p>
+<ol>
+<li><strong><code>kubectl get pods -o wide</code></strong> — check the <code>READY</code> column. It'll show <code>0/1</code> instead of <code>1/1</code> if the readiness probe is failing. This is the single fastest signal.</li>
+<li><strong><code>kubectl get endpoints &lt;service-name&gt;</code></strong> — a Service is backed by an <code>Endpoints</code> object listing the IPs of pods it'll actually route to. If your pod isn't <code>Ready</code>, its IP won't be in this list, period. Empty endpoints = your first hypothesis confirmed.</li>
+<li><strong><code>kubectl describe pod &lt;name&gt;</code></strong> — now check <em>why</em> readiness is failing (probe path wrong, port wrong, app not actually up yet), or check the <code>Labels</code> section.</li>
+<li><strong>Label selector mismatch</strong> — the other classic cause. <code>Service.spec.selector</code> must exactly match <code>Pod.metadata.labels</code>. Typo an env-specific label (<code>app: api-v2</code> vs <code>app: api</code>) and the Service silently matches zero pods — nothing crashes, nothing logs an error, traffic just goes nowhere.</li>
+</ol>
+<p><code>logs</code> and <code>describe</code> are still useful, but only <em>after</em> step 1 and 2 tell you <em>where</em> to look — Service/endpoint layer vs. app layer.</p>
+<p>Kubernetes.png</p>
+<p>The full request path plus the two side-inputs that matter for real production work: config/secrets going in, and autoscaling watching from the side. Let's fill in the depth behind each box.</p>
+<h3 id="services-the-three-types-and-when-each-is-real">Services — the three types, and when each is real</h3>
+<p><strong>ClusterIP</strong> (default): internal-only virtual IP, routable inside the cluster. This is what 90% of your services should be — databases, internal APIs, anything that shouldn't be internet-facing.</p>
+<p><strong>NodePort</strong>: opens a static port (30000–32767) on <em>every</em> node's IP. Mostly a dev/testing shortcut — nobody runs this in production because you'd be bypassing your load balancer and hitting raw node IPs.</p>
+<p><strong>LoadBalancer</strong>: tells your cloud provider (AWS/GCP/Azure) to provision an actual external load balancer that forwards to the NodePort under the hood. This is the real production entry point <em>if you're not using Ingress</em>.</p>
+<p><strong>The senior nuance</strong>: a Service isn't a process or a proxy sitting somewhere — it's just an IP + a set of iptables/IPVS rules that <code>kube-proxy</code> maintains on every node. When you <code>curl</code> a Service IP, the kernel on that node rewrites the destination to one of the backing pod IPs before the packet ever leaves. There's no "service pod" to <code>kubectl exec</code> into and debug — that trips people up in interviews constantly.</p>
+<p>DNS ties in here too: every Service gets <code>&lt;name&gt;.&lt;namespace&gt;.svc.cluster.local</code> for free, via CoreDNS. That's why microservices call each other by name (<code>http://payments-service</code>) instead of hardcoded IPs.</p>
+<h3 id="configmaps-secrets">ConfigMaps &amp; Secrets</h3>
+<p>Both externalize config from your image, so the same image can run in dev/staging/prod with different values — never bake environment-specific config into a Docker image.</p>
+<p>yaml</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="l l-Scalar l-Scalar-Plain">envFrom:-configMapRef:{name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-config}-secretRef:{name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-secrets}</span>
+</span></code></pre></div>
+<p>or mount as files via a volume, useful when your app expects a config file on disk rather than env vars.</p>
+<p><strong>The nuance that separates senior from junior here: Secrets are base64-encoded, not encrypted.</strong> <code>kubectl get secret x -o jsonpath='{.data.password}' | base64 -d</code> gets you the plaintext in two seconds. Anyone with <code>get secrets</code> RBAC access can read them. Real production setups add etcd encryption-at-rest, tight RBAC on the <code>secrets</code> resource, and often an external secrets manager (Vault, AWS Secrets Manager) synced in via an operator — Kubernetes Secrets alone are not a security boundary, just a distribution mechanism.</p>
+<h3 id="ingress">Ingress</h3>
+<p>One important thing the diagram simplifies: <strong>the Ingress resource does nothing by itself.</strong> It's just a set of routing rules (host/path → service). You need an <strong>Ingress Controller</strong> (nginx-ingress, AWS ALB controller, Traefik) actually running as pods in your cluster to read those rules and act as the real reverse proxy. Create an Ingress object with no controller installed, and it just sits there — no traffic ever moves. This is a very common "why isn't this working" interview trap.</p>
+<p>yaml</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">rules:-host: api.myapp.comhttp:paths:-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usersbackend:{service:{name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">users-svc,port:{number:80}}}-path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ordersbackend:{service:{name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orders-svc,port:{number:80}}}</span>
+</span></code></pre></div>
+<p>One Ingress can route to many Services by host or path — this is why you'd use Ingress over multiple LoadBalancer Services: one external IP/cost instead of one per service, plus centralized TLS termination.</p>
+<h3 id="rolling-updates-rollback">Rolling updates &amp; rollback</h3>
+<p>This is where readiness probes actually pay off. When you run.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectlset<span class="w"> </span>image<span class="w"> </span>deployment/apiapi<span class="o">=</span>myorg/api:1.5kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deployment/api
+</span></code></pre></div>
+<p>Kubernetes doesn't kill all old pods and start new ones — it brings up new pods <em>incrementally</em>, and only kills an old pod once a new one reports <strong>Ready</strong>. Two knobs control the pace.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="l l-Scalar l-Scalar-Plain">strategy:rollingUpdate:maxSurge:1# how many extra pods above desired count during rolloutmaxUnavailable:0# how many pods can be down during rollout</span>
+</span></code></pre></div>
+<p><code>maxUnavailable: 0</code> means zero-downtime deploys — always at least the full desired count available. If your new image is broken and fails readiness, the rollout just... stalls. It won't kill more old pods. This is a self-protecting mechanism, which is why broken readiness probes are dangerous in the other direction too (a rollout can look "stuck" when actually it's correctly refusing to proceed).</p>
+<p>Rollback is one command.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/api#<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>previous<span class="w"> </span>revisionkubectl<span class="w"> </span>rollouthistory<span class="w"> </span>deployment/api#<span class="w"> </span>see<span class="w"> </span>revision<span class="w"> </span>listkubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/api<span class="w"> </span>--to-revision<span class="o">=</span><span class="m">3</span>
+</span></code></pre></div></p>
+<h3 id="autoscaling-hpa">Autoscaling (HPA)</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kubectl<span class="w"> </span>autoscale<span class="w"> </span>deployment<span class="w"> </span>api<span class="w"> </span>--min<span class="o">=</span><span class="m">2</span><span class="w"> </span>--max<span class="o">=</span><span class="m">10</span><span class="w"> </span>--cpu-percent<span class="o">=</span><span class="m">70</span>
+</span></code></pre></div>
+<p>This creates an HPA object that polls pod CPU usage (via <code>metrics-server</code>, which must be installed — it's not built in) every 15s by default, and adjusts <code>.spec.replicas</code> on the Deployment up or down to keep average CPU near your target. It only changes replica <em>count</em> — it has no opinion on per-pod CPU/memory <code>limits</code>, which is a separate axis entirely.</p>
+<p>Two things worth knowing exist, without needing depth yet: <strong>VPA</strong> (Vertical Pod Autoscaler — adjusts a pod's requests/limits instead of replica count) and <strong>Cluster Autoscaler</strong> (adds/removes actual <em>nodes</em> when pods can't be scheduled due to resource pressure). HPA scales pods, Cluster Autoscaler scales the nodes underneath them — different layers, often confused in interviews.</p>
+<hr />
+<h3 id="build-exercise-do-this-before-we-move-on">Build exercise (do this before we move on)</h3>
+<p>Deploy a small app with: a Deployment (2 replicas, readiness + liveness probes), a ClusterIP Service, a ConfigMap for one env var, and an HPA targeting 70% CPU. Then:</p>
+<ol>
+<li><code>kubectl scale deployment/&lt;name&gt; --replicas=5</code> and watch new pods hit Ready.</li>
+<li>Deliberately break the image tag (typo it) and run <code>kubectl set image</code> — watch the rollout stall, then <code>rollout undo</code>.</li>
+<li>Delete a pod manually (<code>kubectl delete pod &lt;name&gt;</code>) and watch the ReplicaSet replace it within seconds.</li>
+</ol>
+<h3 id="debug-question">Debug question</h3>
+<p>Your HPA is configured with <code>--cpu-percent=70</code>, load is clearly high, but <code>kubectl get hpa</code> shows <code>&lt;unknown&gt;/70%</code> instead of an actual percentage, and it never scales. What's the most likely cause?</p>
+<p>The most likely cause is one of two things, and the fix depends on which:</p>
+<h3 id="1-metrics-server-isnt-installed-or-is-broken-the-common-one-on-freshself-managed-clusters">1. <code>metrics-server</code> isn't installed or is broken (the common one on fresh/self-managed clusters)</h3>
+<p>HPA doesn't invent CPU numbers itself — it queries the <code>metrics.k8s.io</code> API, which is backed by <code>metrics-server</code>, a separate component that has to be deployed and running. If it's missing, crashing, or can't reach the kubelets, HPA has nothing to read and falls back to <code>&lt;unknown&gt;</code>.</p>
+<p>Check in this order:</p>
+<p>bash</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kubectltop<span class="w"> </span>pods#<span class="w"> </span><span class="s2">&quot;error: Metrics API not available&quot;</span><span class="w"> </span>→<span class="w"> </span>confirms<span class="w"> </span>metrics-server<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>problemkubectl<span class="w"> </span>get<span class="w"> </span>apiservices<span class="p">|</span>grep<span class="w"> </span>metrics#<span class="w"> </span>v1beta1.metrics.k8s.io<span class="w"> </span>should<span class="w"> </span>show<span class="w"> </span><span class="nv">Available</span><span class="o">=</span>Truekubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="p">|</span>grep<span class="w"> </span>metrics-server#<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>Running,<span class="w"> </span>not<span class="w"> </span>CrashLoopBackOff/Pendingkubectl<span class="w"> </span>logs<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>deploy/metrics-server
+</span></code></pre></div>
+<p>That last one usually shows the real reason on kubeadm-style clusters: <strong>TLS handshake failures against kubelets</strong>, because metrics-server doesn't trust the kubelet's self-signed serving cert by default. The quick fix (dev/test) is adding <code>--kubelet-insecure-tls</code> to its args; the correct production fix is giving it a CA bundle that actually validates kubelet certs, since <code>--kubelet-insecure-tls</code> disables verification cluster-wide.</p>
+<h3 id="2-the-pods-have-no-resourcesrequestscpu-set">2. The pods have no <code>resources.requests.cpu</code> set</h3>
+<p>This one's sneakier because metrics-server can be perfectly healthy and you'll <em>still</em> see <code>&lt;unknown&gt;</code>. HPA's percentage is always <code>current usage ÷ requested amount</code>. No <code>requests.cpu</code> on the container spec means there's no denominator — it's not that the math comes out wrong, there's no math to do, so it shows unknown instead of a number.</p>
+<p>bash</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>deployment<span class="w"> </span>api<span class="p">|</span>grep<span class="w"> </span>-A2<span class="w"> </span>Requests
+</span></code></pre></div>
+<p>If that's empty, that's your answer — add <code>resources.requests.cpu</code> to the container spec and the percentage appears immediately (assuming metrics-server is otherwise healthy).</p>
+<p><strong>In practice, check #2 first</strong> — it's a 5-second grep and it's the more common oversight, especially on manifests copy-pasted without resource sections. Only dig into metrics-server logs if requests are actually set and it's still <code>&lt;unknown&gt;</code>.</p>
+<p>Explain rolling updates and rollbacks for a Deployment in depth</p>
+<h3 id="rolling-updates-rollback-full-mechanics">Rolling updates &amp; rollback — full mechanics</h3>
+<p>Quick reframe before the details: a rolling update isn't really a Deployment "action" — it's the same reconciliation loop you already know, just triggered twice in a row. When you change the pod template (new image, new env var, whatever), the Deployment controller creates a <strong>brand new ReplicaSet</strong> matching the new spec, and starts shifting replica count from the old ReplicaSet to the new one. The old ReplicaSet doesn't get deleted — it gets scaled down to 0 and kept around (this matters for rollback, below).</p>
+<h3 id="the-exact-math-behind-maxsurge-maxunavailable">The exact math behind maxSurge / maxUnavailable</h3>
+<p>Say <code>replicas: 3</code>, <code>maxSurge: 1</code>, <code>maxUnavailable: 0</code> (a common, safe default):</p>
+<ul>
+<li><strong>Surge budget</strong> = <code>replicas × maxSurge</code> = 1 extra pod allowed above desired count → cluster can briefly run 4 pods total.</li>
+<li><strong>Unavailable budget</strong> = <code>replicas × maxUnavailable</code> = 0 → at no point can fewer than 3 pods be Ready.</li>
+</ul>
+<p>So the controller can <em>only</em> create 1 new pod at a time, and can <em>only</em> kill an old pod once a new one is Ready (since it can't drop below 3 Ready). That's why a 3-replica rollout with these settings does exactly this, one pod at a time:</p>
+<p>V</p>
+<p>visualize</p>
+<p>The visual didn't render this time, so here's the same sequence as a table — same information either way:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Old pods</th>
+<th>New pods</th>
+<th>Total</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td>3 (v1)</td>
+<td>0</td>
+<td>3</td>
+<td>baseline</td>
+</tr>
+<tr>
+<td>Surge</td>
+<td>3 (v1)</td>
+<td>1 (v2)</td>
+<td>4</td>
+<td><code>maxSurge=1</code> allows 1 extra</td>
+</tr>
+<tr>
+<td>New ready</td>
+<td>3 (v1)</td>
+<td>1 (v2, Ready)</td>
+<td>4</td>
+<td>waiting on readiness probe</td>
+</tr>
+<tr>
+<td>Terminate old</td>
+<td>2 (v1)</td>
+<td>1 (v2)</td>
+<td>3</td>
+<td><code>maxUnavailable=0</code> — only kill once replacement is Ready</td>
+</tr>
+<tr>
+<td>Repeat ×2</td>
+<td>0 (v1)</td>
+<td>3 (v2)</td>
+<td>3</td>
+<td>cycle continues until fully replaced</td>
+</tr>
+</tbody>
+</table>
+<p>That's the whole algorithm: <strong>surge up by at most <code>maxSurge</code>, drain down by at most <code>maxUnavailable</code>, gated at every step by the readiness probe.</strong> If you set <code>maxSurge: 0, maxUnavailable: 1</code> instead, you get the inverse pattern — kill an old pod first, then create the replacement. That's slower and briefly reduces capacity, but uses zero extra resources — useful when your cluster has no headroom for surge pods.</p>
+<h3 id="minreadyseconds-the-probe-isnt-always-enough">minReadySeconds — the probe isn't always enough</h3>
+<p><code>readinessProbe</code> passing just means "one HTTP 200." <code>minReadySeconds</code> adds a mandatory minimum time a pod must stay Ready <em>continuously</em> before it counts toward availability:</p>
+<p>yaml</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="l l-Scalar l-Scalar-Plain">spec:minReadySeconds:15</span>
+</span></code></pre></div>
+<p>This catches apps that pass a health check immediately but then die under real traffic a few seconds later (e.g., connection pool exhaustion, slow memory leak). Without it, a flaky new version could look "successfully rolled out" for a few seconds before falling over — this setting buys you a stability window before the controller moves to the next pod.</p>
+<h3 id="progressdeadlineseconds-how-a-stuck-rollout-gets-flagged">progressDeadlineSeconds — how a stuck rollout gets flagged.</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="l l-Scalar l-Scalar-Plain">spec:progressDeadlineSeconds:600</span><span class="w"> </span><span class="c1"># default</span>
+</span></code></pre></div>
+<p>If the Deployment controller makes zero progress (no new pod becoming Ready) for this long, it marks the Deployment condition <code>Progressing: False</code> with reason <code>ProgressDeadlineExceeded</code>. <strong>This does not auto-rollback</strong> — Kubernetes just stops and flags it. Your CI/CD pipeline (or a human) has to notice that condition and decide to run <code>kubectl rollout undo</code>. This is a common trip-up: people assume K8s auto-heals a bad rollout — it doesn't, it just refuses to make things worse.</p>
+<h3 id="revision-history-what-rollout-undo-actually-does">Revision history — what <code>rollout undo</code> actually does</h3>
+<p>Every rollout creates a new ReplicaSet, but old ones aren't deleted — they're kept at <code>replicas: 0</code>, tagged with a revision number (visible via <code>kubectl rollout history deployment/api</code>). <code>revisionHistoryLimit</code> (default 10) controls how many are retained.</p>
+<p><code>kubectl rollout undo</code> is just... the same rolling-update dance in reverse: scale the old ReplicaSet back up, scale the current one down to 0, gated by the same readiness/surge/unavailable rules. There's no separate "rollback mechanism" — it's the identical reconciliation loop, pointed at a different target ReplicaSet. That's a good thing to say out loud in an interview; it shows you understand it's one mechanism, not two.</p>
+<p>bash</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/api<span class="w"> </span><span class="c1"># to previous revision</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/api<span class="w"> </span>--to-revision<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="c1"># to a specific one</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>pause<span class="w"> </span>deployment/api<span class="w"> </span><span class="c1"># freeze mid-rollout to inspect</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>resume<span class="w"> </span>deployment/api
+</span></code></pre></div>
+<p><code>pause</code>/<code>resume</code> is genuinely useful in practice: pause after the first surge pod comes up, poke at it directly (<code>kubectl exec</code>, hit its metrics), confirm it's healthy, then resume — a manual canary check without any extra tooling.</p>
+<h3 id="recreate-strategy-the-other-option">Recreate strategy — the other option</h3>
+<p>yaml</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">spec:strategy:type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Recreate</span>
+</span></code></pre></div>
+<p>Kills <em>all</em> old pods first, then creates all new ones. Zero surge, but a guaranteed downtime window. You'd use this when your app can't tolerate two versions running simultaneously — e.g., a schema migration that old-version pods can't handle, or a singleton process that can't have two instances touching the same resource at once.</p>
+<h3 id="debugging-a-stuck-rollout-the-sequence">Debugging a stuck rollout — the sequence</h3>
+<ol>
+<li><code>kubectl rollout status deployment/api</code> — tells you immediately if it's waiting on readiness.</li>
+<li><code>kubectl get replicasets -l app=api</code> — see old vs new RS pod counts side by side.</li>
+<li><code>kubectl describe deployment api</code> — check <code>Conditions</code> for <code>ProgressDeadlineExceeded</code>.</li>
+<li><code>kubectl get pods -l app=api</code> then <code>describe</code>/<code>logs</code> on whichever new pod isn't Ready — this drops you back into the CrashLoopBackOff/OOMKilled debugging from earlier.</li>
+<li>If it's genuinely broken: <code>kubectl rollout undo deployment/api</code>.</li>
+</ol>
+<hr />
+<p><strong>Build</strong>: set <code>replicas: 4, maxSurge: 1, maxUnavailable: 0</code> on a real Deployment, then run <code>kubectl set image</code> while watching <code>kubectl get pods -w</code> in another terminal — you should see the exact surge/drain pattern from the table above, one pod at a time.</p>
+<h3 id="you-set-maxunavailable-0-and-maxsurge-1-on-a-3-replica-deployment-but-your-cluster-only-has-exactly-enough-free-cpumemory-for-3-pods-none-spare-what-happens-when-you-trigger-the-rollout">you set <code>maxUnavailable: 0</code> and <code>maxSurge: 1</code> on a 3-replica Deployment, but your cluster only has exactly enough free CPU/memory for 3 pods, none spare. What happens when you trigger the rollout?</h3>
+<h3 id="what-happens-the-rollout-gets-stuck-but-nothing-goes-down">What happens: the rollout gets stuck, but nothing goes down</h3>
+<p><strong>Step by step:</strong></p>
+<ol>
+<li>Controller tries to honor <code>maxSurge: 1</code> and creates the 4th pod (the new version).</li>
+<li>The scheduler tries to place it, but no node has enough allocatable CPU/memory left — the cluster is already at capacity with the 3 running pods.</li>
+<li>The new pod goes into <strong><code>Pending</code></strong>, stuck at the scheduling stage. <code>kubectl describe pod &lt;new-pod&gt;</code> shows a <code>FailedScheduling</code> event: <code>0/N nodes are available: insufficient cpu</code>.</li>
+<li>Because <code>maxUnavailable: 0</code>, the controller is forbidden from touching any old pod until a replacement is Ready — and this one can't even get scheduled, let alone become Ready.</li>
+</ol>
+<p><strong>Net result:</strong> 3 old pods keep running exactly as they were, serving traffic normally. 1 new pod sits <code>Pending</code> indefinitely. The rollout just... hangs. No outage, no degraded capacity — just stalled.</p>
+<h3 id="what-youll-observe">What you'll observe</h3>
+<p>bash</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deployment/api
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Waiting for deployment &quot;api&quot; rollout to finish: 1 out of 4 new replicas have been updated...</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># (never completes)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># 3 old pods: Running.</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># 1 new pod: Pending.</span>
+</span></code></pre></div>
+<p>After <code>progressDeadlineSeconds</code> (default 600s), the Deployment's <code>Progressing</code> condition flips to <code>False</code> with <code>ProgressDeadlineExceeded</code> — but that's just a status flag surfacing in <code>kubectl describe deployment</code>, not an automatic fix. Nothing rolls back on its own.</p>
+<h3 id="the-recovery-is-almost-free-here">The recovery is almost free here</h3>
+<p>This is the payoff of the safety mechanism: since <code>maxUnavailable: 0</code> never let the controller touch the old pods, there's nothing to undo in terms of live traffic. <code>kubectl rollout undo</code> just scales the new ReplicaSet's stuck <code>Pending</code> pod back to 0 — a no-op from the scheduler's perspective since it was never running — and the old ReplicaSet, still at 3/3, doesn't need to change at all. Zero customer impact, one command.</p>
+<p><strong>If Cluster Autoscaler is running</strong>, it would separately notice the unschedulable pod and provision a new node, letting the rollout complete on its own instead of staying stuck — which is exactly why production clusters running rolling deployments pair <code>maxSurge</code> with either genuine headroom or an autoscaler; a cluster running at 100% steady-state capacity with no autoscaler will stall on every single rollout that needs surge capacity.</p>
+<h2 id="kubernetes-networking">Kubernetes Networking.</h2>
+<p>The smallest component is Pod. There should be atleast one main container inside pod.</p>
+<p><strong>Why there is the need to Pod?</strong>
+Every pod has the unique IP address and the IP address is reachable from all other pods in the cluster.</p>
+<p>When there are say many application like postgress and run in local port then there is no way to track how many ports are assigned and the port that are there to use. Pods are abstraction and contains containers.<br />
+When teh pods runs on the node it gets its own network namespace, virtual ethernet connection. Pod is teh host which has the IP address and the range of port to run container.</p>
+<p>To create a pod it should be yml file. The sample code for the postgres.yml file.
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="n">v1</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">kind</span><span class="p">:</span><span class="w"> </span><span class="n">Pod</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">metadata</span><span class="p">:</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">postgres</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="n">labels</span><span class="p">:</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="n">app</span><span class="p">:</span><span class="w"> </span><span class="n">postgres</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">spec</span><span class="p">:</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="n">containers</span><span class="p">:</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">postgres</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="n">image</span><span class="p">:</span><span class="w"> </span><span class="n">postgres</span><span class="p">:</span><span class="mi">9</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="mi">17</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="n">ports</span><span class="p">:</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">containerPort</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">    </span><span class="n">env</span><span class="p">:</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="n">POSTGRES_PASSWORD</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;pwd&quot;</span>
+</span></code></pre></div>
+containerPort - port where the application inside the container runs.</p>
+<p>There can be many containers inside teh pod. say the scheduler or the backup container like the replica and the side car container. </p>
+<p><strong>How do the container connect to each other?</strong>
+<img alt="RedisClusterSharding.png" src="..%2Fimages%PodsPort.png" /></p>
+<p>Pods are running inside the network interface and the container run in the localhost.</p>
+<p>Example - Multi container Pod with the nginx-container and the sidecar runs the curlimages.curl image print the line and sleep for 300 seconds.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>apiVersion: v1
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>kind: Pod
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>metadata:
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  name: nginx
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>  labels:
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    app: nginx
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>spec:
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>  containers:
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>  - name: nginx-container
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    image: nginx
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    ports:
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    - containerPort: 80
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>  - name: sidecar
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>    image: curlimages/curl
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>    command: [&quot;/bin/sh&quot;]
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>    args: [&quot;-c&quot;, &quot;echo Hello from the sidecar container; sleep 300&quot;]
+</span></code></pre></div></p>
+<p>The command to run and verify the port.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>kubectl apply -f nginx-sidecar-container.yaml
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>kubectl get pod
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>NAME    READY   STATUS    RESTARTS   AGE
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>nginx   2/2     Running   0          74s
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a># Get inside the sidecar container.
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>kubectl exec -it nginx -c sidecar -- /bin/sh
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>  # netstat -ln
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>Active Internet connections (only servers)
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>Proto  Recv-Q  Send-Q  Local Address    Foreign Address  State
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>tcp    0       0       0.0.0.0:80      0.0.0.0:*        LISTEN
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>curl localhost:80
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a># Output will show message.
+</span></code></pre></div>
+<h2 id="kubernetes-services">Kubernetes Services.</h2>
+<h3 id="what-is-kubernetes-service">What is Kubernetes Service?</h3>
+<p>There are mainly 4 types of services - ClusterIp, Headless, NodePort, LoadBalancer, and ExternalName.</p>
+<p>Each pod has its own IP address and pods are ephemeral and when they are removed new ip address is assigned. It doesn't make sense to use the poor IP address because when it did get a new IP address then you have to change.</p>
+<p>With services the IP address would be stable. We put the services ahead of the pods.</p>
+<p>Services are also used as loadbalancer - when here are 3 pod of services or mysql application. The service will get teh request targeted to the application and forward it to the pods.
+Services promote loose coupling to communicate within the cluster component.</p>
+<p>Cluster Ip - The default services and when a microservice application is deployed then there is a pos with the microservice container inside the pod. The sidecar container is there with the pod to collect the logs and send to the log server. </p>
+<p>The microservice container running in port 3000 and the log server is running in port 8000.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>apiVersion: apps/v1
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>kind: Deployment
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>metadata:
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  name: microservice-one
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>spec:
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>  replicas: 2
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>  template:
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    metadata:
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>      labels:
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>        app: microservice-one
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    spec:
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>      containers:
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>      - name: ms-one
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>        image: my-private-repo/ms-one
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        ports:
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>        - containerPort: 3000
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>      - name: log-collector
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>        image: my-private-repo/log-collector
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>        ports:
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>        - containerPort: 9000
+</span></code></pre></div>
+The pod will get the ip address based on the node. There are 3 nodes then the nodes will get a range of the IP address and pod will get the IP address in the range.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>kubectl get pod -o wide
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a># The output - 
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>NAME                                      READY   STATUS    RESTARTS   AGE   IP
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>mongodb-deployment-55577c4cbc-gkz8b       1/1     Running   0          29s   10.2.2.2
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>mongodb-deployment-55577c4cbc-z828l       1/1     Running   0          29s   10.2.1.4
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>mongodb-deployment-55577c4cbc-zv9h8       1/1     Running   0          29s   10.2.2.3
+</span></code></pre></div>
+<p>Example node 1 range is 10.2.2.x and the pod within the node 1 Ip address range will be in the range of the node.</p>
+<p>The replication set to 2 meaning there are 2 pods with the application running say Node 1 and Node 2. The request is coming from the browser meaning the Ingress connection is set up. </p>
+<p>The request coming from the ingress coming to service the clusterIp service and the service will have a port and ip adcress and it will act as abstraction to the IP address.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>#The ingress yaml.
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>apiVersion: networking.k8s.io/v1beta1
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>kind: Ingress
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>metadata:
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  name: ms-one-ingress
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>  annotations:
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    kubernetes.io/ingress.class: &quot;nginx&quot;
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>spec:
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>  rules:
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>  - host: microservice-one.com
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    http:
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>      paths:
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>      - path: /
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>        backend:
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>          serviceName: microservice-one-service
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>          servicePort: 3200
+</span></code></pre></div>
+<p>The service name and the port is set and the ingress will set the request to the service in the IP say <code>10.128.8.44</code>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a># The service-clusterIp.yaml
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>apiVersion: v1
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>kind: Service
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>metadata:
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>  name: microservice-one-service
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>spec:
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>  selector:
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    app: microservice-one
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>  ports:
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    - protocol: TCP
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>      port: 3200
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>      targetPort: 3000
+</span></code></pre></div></p>
+<p><strong>How the service knows which pod to forward the request? The replica is 2 then which to take the request.</strong></p>
+<p>The service understand the member pod using the selector attribute. The yaml file has the selector attribute.</p>
+<p><strong>How the selector knows like which port to forward the request</strong></p>
+<p>The target port is defined in the yml file. The selector will get the name and the targetPort.  </p>
+<p>When there is the service Kubernetes will create the Endpoint object and it will track which pod are the members of the service.</p>
+<h3 id="the-type-of-services">The type of services.</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.tabs.sticky", "navigation.expand", "navigation.path", "toc.follow", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.mermaid"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

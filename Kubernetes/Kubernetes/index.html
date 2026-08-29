@@ -1,0 +1,2664 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../KubernetesInterview/">
+      
+      
+        <link rel="next" href="../InterviewPart1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Kubernetes Command - Platform Engineering.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ssl-policies" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Platform Engineering." class="md-header__button md-logo" aria-label="Platform Engineering." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Platform Engineering.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kubernetes Command
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01KubernetesFundamental/" class="md-tabs__link">
+          
+  
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PlatformEngineering.md" class="md-tabs__link">
+          
+  
+  
+  Platform Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Linux/Fundamental/" class="md-tabs__link">
+          
+  
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CloudEngineering.md" class="md-tabs__link">
+          
+  
+  
+  Cloud Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DevOps/01DevOpsFundamentl/" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../HandsOn.md" class="md-tabs__link">
+          
+  
+  
+  Hands-On
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../InterviewQuestions.md" class="md-tabs__link">
+          
+  
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Platform Engineering." class="md-nav__button md-logo" aria-label="Platform Engineering." data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Platform Engineering.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01KubernetesFundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KubernetesInterview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Command
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssl-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gke-standard-cluster-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GKE Standard Cluster Architecture.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gke-autopilot-cluster-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GKE Autopilot Cluster Architecture.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Architecture.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Architecture.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Master Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pod.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-services-loadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Services - Loadbalancer.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-connect-to-the-application-container-in-pod-and-execute-the-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to connect to the application container in POD and execute the command.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replicaset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ReplicaSet.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale the deployment.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-update-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Update Deployment.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-to-previous-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback to previous version.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback to previous version.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pause-and-resume-the-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pause and Resume the deployments.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Service.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Service.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-ip-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster IP Service.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-pod-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Pod manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-load-balancer-service-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Load Balancer Service manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-replicaset-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes ReplicaSet manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-deployment-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Deployment manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodeport-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NodePort Service.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headless-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headless Service.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InterviewPart1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Interview Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Platform Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PlatformEngineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Fundamental/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CloudEngineering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/01DevOpsFundamentl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hands-On
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HandsOn.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../InterviewQuestions.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssl-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gke-standard-cluster-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GKE Standard Cluster Architecture.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gke-autopilot-cluster-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GKE Autopilot Cluster Architecture.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Architecture.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Architecture.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Master Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pod.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-services-loadbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Services - Loadbalancer.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-connect-to-the-application-container-in-pod-and-execute-the-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to connect to the application container in POD and execute the command.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replicaset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ReplicaSet.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale the deployment.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-update-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Update Deployment.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-to-previous-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback to previous version.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rollback to previous version.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pause-and-resume-the-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pause and Resume the deployments.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Service.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Service.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-ip-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster IP Service.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-pod-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Pod manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-load-balancer-service-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Load Balancer Service manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-replicaset-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes ReplicaSet manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-deployment-manifest-in-yaml-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Deployment manifest in yaml - declarative.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nodeport-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NodePort Service.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headless-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headless Service.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../01KubernetesFundamental/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Kubernetes Command</h1>
+
+<p>A Pod is a single instance of an application. <br />
+A POD is the smallest object that you can create in Kubernetes. <br />
+A Pod can contain one or more containers. <br />
+The containers in a Pod share the same network namespace, which means they can communicate with each other using localhost. <br />
+Pods are ephemeral, meaning they can be created and destroyed as needed.</p>
+<p>ReplicaSet - A replicaSet will maintain a stable set of replica Pods running at any given time. It is used to guarantee the availability of a specified number of identical Pods. </p>
+<p>Deployment - A deployment runs multiple replicas of your application and automatically replaces any instances that fail or become unresponsive. It provides declarative updates to Pods and ReplicaSets.<br />
+It is well-suited for stateless applications.</p>
+<p>Service - A service is an abstraction for Pods providing a stable virtual IP VIP address. The service sits in front of a POD and acts as a load balancer.</p>
+<p>Kubernetes - Imperative and Declarative.</p>
+<p>Imperative - Meaning deploying using kubectl.</p>
+<p>Declarative - Meaning deploying using yaml file and kubectl apply.</p>
+<h3 id="ssl-policies">SSL Policies</h3>
+<p>SSL policies specify the set of SSL features that Google Cloud load balancers use when negotiating SSL with clients.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Policy Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>COMPATIBLE</strong></td>
+<td>Allows the broadest set of clients, including those that support only outdated SSL features.</td>
+</tr>
+<tr>
+<td><strong>MODERN</strong></td>
+<td>Supports a wide set of SSL features, allowing modern clients to negotiate SSL securely.</td>
+</tr>
+<tr>
+<td><strong>RESTRICTED</strong></td>
+<td>Supports a reduced set of SSL features, intended to meet stricter compliance requirements.</td>
+</tr>
+<tr>
+<td><strong>CUSTOM</strong></td>
+<td>Lets you select SSL features individually for fine‑grained control.</td>
+</tr>
+</tbody>
+</table>
+<p>GKE cluster mode - <strong>GKE standard cluster, GKE autopilot cluster</strong>.</p>
+<p>GKE Standard cluster - It will be both public and private cluster. When using the cluster we need the compute engine like the storage snapshots, storage image and the compute engine.</p>
+<p>GKE public cluster then private cluster. In private cluster we have the VPC network peering, private connectivity and pull docker images.</p>
+<p>The clusters will be in different cluster types.<br />
+GKE zonal Cluster or GKE Regional Cluster.<br />
+GKE Public Custer or GKE Private Cluster.<br />
+GKE Alpha Cluster or GKE Cluster using Node Pools.</p>
+<h3 id="gke-standard-cluster-architecture">GKE Standard Cluster Architecture.</h3>
+<p><img alt="GKE Standard Cluster Architecture" src="../../images/GKEStandardClusterArchitecture.png" />
+<em>Figure: GKE Standard Cluster Architecture</em></p>
+<p>User will use the kubectl and connect to the Zonal Control Plane.</p>
+<p>The Zonal Control Plane are maintained by the GKE provision and the Nodes by the user. </p>
+<p>Sample - Create a standard GKE cluster - Configure the Google CloudShell to access GKE cluster and deploy kubernetes deployment and load balancer service.</p>
+<p>Console - kubernetes engine - select nodes boot disk type.</p>
+<p>Boot disk 3 types - Standard persistent disk, SSD persistent disk, Balanced persistent disk.</p>
+<p>There are nodes and node pool - say 3 node pool in the cluster page and it will be visible in the compute engine vm instances.</p>
+<p>In the workload section we will be seeing the workload deployed using kubectl.
+The services and application packaged to the kubernetes will be deployed.</p>
+<h3 id="gke-autopilot-cluster-architecture">GKE Autopilot Cluster Architecture.</h3>
+<p>The Autopilot control plane and the nodes are maintained by GKE and user deploy the workload.</p>
+<p><img alt="" src="../../images/GKEAutoPilotClusterArchitecture.png" /></p>
+<p>Autoscaling on the nodes will be taken care by the autopilot cluster.</p>
+<h2 id="kubernetes-architecture">Kubernetes Architecture.</h2>
+<p><img alt="Kubernetes Master Node Worker Node" src="../../images/KubernetesMasterNodeWorkerNode.png" /></p>
+<p>In every worker node there will be kubelet and kube-proxy.</p>
+<h4 id="master-node">Master Node.</h4>
+<p><strong>kube-apiserver</strong> - It acts as front end for the Kubernetes control plane. It exposes the <em>Kubernetes API</em>.</p>
+<p>Command line tools (like kubectl), Users and even Master components (scheduler, controller manager, etcd) and Worker node components like (Kubelet) everything talk with API Server.</p>
+<p><strong>etcd</strong> - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.</p>
+<p>It stores all the masters and worker node information. It acts as a db of the cluster.</p>
+<p><strong>kube-scheduler</strong> - Scheduler is responsible for distributing containers across multiple nodes.</p>
+<p>It watches for newly created Pods with no assigned node, and selects a node for them to run on. </p>
+<p>Schedule the pod in the worker node and the kube-scheduler plays an key role.</p>
+<p><strong>kube-controller-manager</strong> - Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases.</p>
+<p>Node Controller - Responsible for noticing and responding when nodes go down.</p>
+<p>Replication Controller - Responsible for maintaining the correct number of pods for every replication controller object in the system.</p>
+<p>Endpoints Controller - Populates the Endpoints object (that is, joins Services &amp; Pods).</p>
+<p>Service Account &amp; Token Controller - Creates default accounts and API Access for new namespaces.</p>
+<p><strong>Cloud-controller-manager</strong> - A Kubernetes control plane component that embeds cloud-specific control logic.
+• It only runs controllers that are specific to your cloud provider. It is not present in on-premise kubernetes cluster. It is present for control planes GKE, AWS.
+• On-Premise Kubernetes clusters will not have this component.
+• Node controller: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+• Route controller: For setting up routes in the underlying cloud infrastructure
+• Service controller: For creating, updating and deleting cloud provider load balancer
+• Many more controllers might be present and will differ from cloud to cloud based on that respective cloud Kubernetes Platform design and Integrations to their Cloud products.</p>
+<h4 id="worker-node">Worker Node.</h4>
+<p><strong>Container Runtime</strong> - Container Runtime is the underlying software where all Kubernetes components run.
+In GKE, the default runtime is containerd, but there are also options such as - Ubuntu with Containerd, Ubuntu with Docker, Windows.<br />
+In the cluster node pool the nodes will show the container option.</p>
+<p><strong>Kubelet</strong> - Kubelet is the agent that runs on every node in the cluster.
+This agent is responsible for making sure that containers are running in a Pod on a node.</p>
+<p><strong>Kube-Proxy</strong> - It is a network proxy that runs on each node in your cluster.
+It maintains network rules on nodes.
+In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.</p>
+<h4 id="pod">Pod.</h4>
+<p>In Kubernetes the target is to deploy the application in the form of container on worker nodes in the cluster. <br />
+The container image is needed. The container is encapsulated in Pods.<br />
+A pod is a single instance of an application - Meaning in case the target to get 10 instance of the application then we need to create 10 pods.
+Pod have one to one relationship with container. To scale up we create new pod and to scale down we delete the pod.<br />
+There will be no 2 container in single pod with same purpose like there will be no 2 application instance inside pod of same purpose in single pod.</p>
+<p>When to increase the pod then increase the replica count and it will increase the pod.</p>
+<p>There can be multiple container in single pod - they are not of same type.</p>
+<p>In pod there will be the application instance and a helper container - Sidecar - They act as data pullers - Pull data needed by main container and data pusher - push data like logs to external system - Proxies - Writes static data to html files using helper container and read using main container.
+The containers inside pods communication within the same network space and they share the same storage space.</p>
+<p>Imperative Pod deployment.</p>
+<p>Connect the kubectl to the GKE cluster. In the kubernetes there should be a cluster created. There connect get the code.
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gcloud<span class="w"> </span>container<span class="w"> </span>clusters<span class="w"> </span>get-credentials<span class="w"> </span>&lt;CLUSTER_NAME&gt;<span class="w"> </span>--region<span class="w"> </span>&lt;REGION&gt;<span class="w"> </span>--project<span class="w"> </span>&lt;PROJECT_ID&gt;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>gcloud<span class="w"> </span>container<span class="w"> </span>clusters<span class="w"> </span>get-credentials<span class="w"> </span>standard-public-cluster-1<span class="w"> </span>--region<span class="w"> </span>us-central1<span class="w"> </span>--project<span class="w"> </span>kdaida123
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>kubectl<span class="w"> </span>run<span class="w"> </span>my-first-pod<span class="w"> </span>--image<span class="w"> </span>stacksimplify/kubenginx:1.0.0
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">#NAME            READY   STATUS              RESTARTS   AGE</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">#my-first-pod    1/1     ContainerCreating   0          98s</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>kubectl<span class="w"> </span>get<span class="w"> </span>po<span class="w"> </span>-o<span class="w"> </span>wide
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1">#NAME           READY   STATUS    RESTARTS   AGE   IP          NODE                NOMINATED NODE   READINESS GATES</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1">#my-first-pod   1/1     Running   0          69s   10.124.1.5  gke-standard-pub    &lt;none&gt;           &lt;none&gt;</span>
+</span></code></pre></div></p>
+<p><code>kubectl run my-first-pod --image stacksimplify/kubenginx:1.0.0</code> meaning create the pop name <code>my-first-pod</code> and pull the docker image and create the container in the pod and start the container.</p>
+<p>When set up the application inside the worker node then the application is accessed to the worker node.<br />
+To access the application we need see the worker node and to access externally we need to create <strong>NodePort</strong> or <strong>Load balancer Service</strong>.<br />
+The application needs to be downloaded in the web browser.</p>
+<h4 id="kubernetes-services-loadbalancer">Kubernetes Services - Loadbalancer.</h4>
+<p>We can expose an application running on a set of PODs using different types of Services available in k8s.</p>
+<p>• ClusterIP Service (Expose the application as a pod internal to k8s cluster)
+• NodePort Service (Internet + internal)
+• LoadBalancer Service (Internet + internal)
+• Ingress Service (Internet + internal)</p>
+<p><strong>LoadBalancer Service</strong> - • To access our application outside of Google GKE k8s cluster, we can use Kubernetes LoadBalancer service which will be eventually mapped to Google Cloud Load Balancer.</p>
+<p>• When we deploy k8s load balancer service in GKE Cluster, the following will be created</p>
+<p>• Google Cloud Load Balancer
+• Google Cloud External IP</p>
+<p>The step include create the pod and expose the pod as a service with the type and port and name.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kubectl get pods
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a># NAME           READY   STATUS    RESTARTS   AGE
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a># my-first-pod   1/1     Running   0          9s
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>kubectl expose pod my-first-pod --type=LoadBalancer --port=80 --name=my-first-service
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>#service/my-first-service exposed
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>kubectl get service
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a># kubernetes         ClusterIP      10.0.0.1     &lt;none&gt;        443/TCP        3d1h
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a># my-first-service   LoadBalancer   10.0.8.232   &lt;pending&gt;     80:31317/TCP   11s
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>kubectl get svc
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a># NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a># kubernetes         ClusterIP      10.0.0.1     &lt;none&gt;        443/TCP        3d1h
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a># my-first-service   LoadBalancer   10.0.8.232   34.123.61.239     80:31317/TCP   44s
+</span></code></pre></div>
+To verify <code>console - Kubernetes Engine - Services and Ingress - the services are created - the endpoint ip address (external Ip) that host the application</code><br />
+In the <code>console - network service - loadbalancer - the application will be showing</code> The connection will be TCP - Kubernetes load balancer creates the TCP connection to the application.</p>
+<p>Important pods command.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="l l-Scalar l-Scalar-Plain">kubectl logs my-first-pod</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl logs -f my-first-pod</span><span class="w"> </span><span class="c1"># It will stream the logs of the pod.</span>
+</span></code></pre></div>
+<h4 id="how-to-connect-to-the-application-container-in-pod-and-execute-the-command">How to connect to the application container in POD and execute the command.</h4>
+<p>To see the containers code then we need to go inside the basdh of the container.
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>my-first-pod<span class="w"> </span>--<span class="w"> </span>/bin/bash
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># There is bash shell in the container so connect to the bash shell. The root user is the main part of the container.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>root@my-first-pod:/#<span class="w"> </span>hostname
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># my-first-pod</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>root@my-first-pod:/#<span class="w"> </span>ls
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">#  bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>root@my-first-pod:/#<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/share/nginx/html
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>root@my-first-pod:/usr/share/nginx/html#<span class="w"> </span>ls
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1">#  50x.html  index.html</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>root@my-first-pod:/usr/share/nginx/html#<span class="w"> </span>cat<span class="w"> </span>index.html
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1">#  &lt;!DOCTYPE html&gt;</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1">#  &lt;html&gt;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1">#  &lt;body style=&quot;background-color:lightgoldenrodyellow;&quot;&gt;</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="c1">#  &lt;h1&gt;Welcome to Stack Simplify&lt;/h1&gt;</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1">#  &lt;p&gt;Kubernetes Fundamentals Demo&lt;/p&gt;</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="c1">#&lt;p&gt;Application Version: V1&lt;/p&gt;</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="c1">#  &lt;/body&gt;</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="c1">#  &lt;/html&gt;</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="c1"># Using kubectl we directly connect without the bash.</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>my-first-pod<span class="w"> </span>--<span class="w"> </span>cat<span class="w"> </span>/usr/share/nginx/html/index.html
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="c1">#&lt;!DOCTYPE html&gt;</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="c1">#&lt;html&gt;</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="c1">#  &lt;body style=&quot;background-color:lightgoldenrodyellow;&quot;&gt;</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="c1">#    &lt;h1&gt;Welcome to Stack Simplify&lt;/h1&gt;</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="c1">#    &lt;p&gt;Kubernetes Fundamentals Demo&lt;/p&gt;</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1">#    &lt;p&gt;Application Version: V1&lt;/p&gt;</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="c1">#  &lt;/body&gt;</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="c1">#&lt;/html&gt;</span>
+</span></code></pre></div></p>
+<p><img alt="" src="../../images/KubernetesServiceLoadBalancer.png" /></p>
+<p>GKE Private Cluster - Understand technology like VPC peering, private IP, public IP, NAT gateway, firewall rules, etc.</p>
+<p><img alt="" src="../../images/GKEPrivateCluster.png" /></p>
+<p>GKE Storage - Kubernetes storage concept - Understand about the storage classes, persistent volume, persistent volume claim, dynamic provisioning, etc. GCE persistent disk as a storage disk for implementation.</p>
+<p><img alt="" src="../../images/GKEStorageComputeEngine.png" /></p>
+<p>Implementation then we proceed with volume snapshot.</p>
+<p><img alt="" src="../../images/GooglePersistentDisk.png" /></p>
+<p>Use of the db Google cloud Cloud SQL and not the persistent disk CSI Driver.</p>
+<p><img alt="" src="../../images/GKEStorageCloudSQL.png" /></p>
+<p>Then the next step to move with the GKE And Cloud SQL public IP.</p>
+<p><img alt="" src="../../images/GKEWorkloadCloudSQLPublicIP.png" /></p>
+<p>Then the next step to move with the GKE And Cloud SQL private service access.</p>
+<p><img alt="" src="../../images/GKEWorkLoadCloudSQLPrivateServiceAccess.png" /></p>
+<p>When it is done will proceed with FileStore and GKE, Volume restore.</p>
+<p>Understand the Loadbalancer later - L4 and L7.</p>
+<p><img alt="" src="../../images/Loadbalancer.png" />
+The ingress is a big topic.
+<img alt="" src="../../images/IngressBasics.png" /></p>
+<p><br></p>
+<p><img alt="" src="../../images/IngressContextPathBasedRouting.png" /></p>
+<p><br></p>
+<p><img alt="" src="../../images/IngresExternalIP.png" /></p>
+<h4 id="replicaset">ReplicaSet.</h4>
+<p>There is no imperative command to create a replica set it is the declarative command.</p>
+<p>Replica set helps in - Availability, Load Balancer, Scaling and Labels and Selectors.</p>
+<p>A ReplicaSet’s purpose is to maintain a stable set of replica Pods running at any given time. In case application crashes (any pod dies), the replicaset will recreate the pod immediately to ensure the configured number of pods running at any given time.</p>
+<p>ReplicaSet used to avoid overloading of traffic to single pod we can use load balancing. </p>
+<p>Kubernetes provides pod load balancing out of the box using <strong>Services</strong> for the pods which are part of a ReplicaSet. The services redirects the load to the specific pod. The Service is a TCP loadbalancer and to use HTTP routing, HTTP load balancing then we need to use ingress.</p>
+<p><strong>Labels &amp; Selectors</strong> are the key items which tie all three together (Pod, ReplicaSet &amp; Service). </p>
+<p>ReplicaSet Scaling. When load becomes too much for the number of existing pods, Kubernetes enables us to easily scale up our application, adding additional pods as needed.
+This is going to be seamless and super quick.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReplicaSet</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld-rs</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld-app</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kube-helloworld:1.0.0</span>
+</span></code></pre></div>
+<p>To deploy the replicaset in cmd <code>kubectl create -f replicaset-demo.yml</code> then see the name in <code>kubectl get replicaset</code></p>
+<p><code>kubectl describe replicaset my-helloworld-rs</code> to see the details of the replicaset.</p>
+<p>The <code>kubectl get pods</code> should show 3 pods. To see the owners of the pod get the name of any pod and <code>kubectl get pods &lt;pod-name&gt; -o yaml</code> the pod yaml will be showing of replicaset and the name. </p>
+<p>The next part to expose the ReplicaSet with a service (Load Balancer Service) to access the application externally (from internet)</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Expose ReplicaSet as a Service</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl expose rs &lt;ReplicaSet-Name&gt;  --type=LoadBalancer --port=80 --target-port=8080 --name=&lt;Service-Name-To-Be-Created&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl expose rs my-helloworld-rs  --type=LoadBalancer --port=80 --target-port=8080 --name=my-helloworld-rs-service</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="l l-Scalar l-Scalar-Plain"># List Services</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get service</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="l l-Scalar l-Scalar-Plain"># kubernetes               ClusterIP      10.0.0.1       &lt;none&gt;          443/TCP          3d11h</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="l l-Scalar l-Scalar-Plain"># my-helloworld-rs-service LoadBalancer   10.0.10.62     34.28.33.243    80:31667/TCP     79s</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="l l-Scalar l-Scalar-Plain"># In the console workload section there is the load balancer with the IP.</span>
+</span></code></pre></div>
+<img alt="Application Deployed IP" src="../../images/ApplicationDeployedIP.png" />
+Each time we access the application, request will be sent to different pod and pods id will be displayed for us.</p>
+<p>To test when delete any pod then it will create pod to maintain the replica value 3.
+Delete the replicaset and the services.
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>rs<span class="w"> </span>my-helloworld-rs
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Verify if ReplicaSet got deleted</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>kubectl<span class="w"> </span>get<span class="w"> </span>rs
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Sample Commands</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>svc<span class="w"> </span>my-helloworld-rs-service
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Verify if Service got deleted</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>kubectl<span class="w"> </span>get<span class="w"> </span>svc
+</span></code></pre></div></p>
+<p>In console the workload and the service should be empty. </p>
+<h4 id="deployment">Deployment.</h4>
+<p>Kubernetes Deployment in imperative way.
+<img alt="Kubernetes Deployment" src="../../images/KubernetesDeployment.png" /></p>
+<p>Inside the cluster worker node we have created the replicaset.   </p>
+<p>The deployment is a superset of Kubernetes replicaset. The deployment in the API specification will have more features than replicaset.</p>
+<p>The deployment use cases are shared.</p>
+<p>Create a deployment to rollout a Replicaset.<br />
+Update Deployment.<br />
+Roll back to an earlier deployment revision.<br />
+Scale up the deployment to facilitate more load.<br />
+Pausing and resuming Deployment.<br />
+Use the status of the deployment.<br />
+Cleanup older replicaset in a deployment.<br />
+Canary Deployment.</p>
+<p>Create the deployment to rollout the Replicaset. Verify the deployment, replicaset and pods. </p>
+<p>When we create a deployment it will roll out a replicaset.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Create Deployment - In the terminal.</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl create deployment &lt;Deployment-Name&gt; --image=&lt;Container-Image&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl create deployment my-first-deployment --image=stacksimplify/kubenginx:1.0.0</span><span class="w"> </span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Deployment</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deployments</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="l l-Scalar l-Scalar-Plain"># Describe Deployment</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="l l-Scalar l-Scalar-Plain">kubectl describe deployment &lt;deployment-name&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="l l-Scalar l-Scalar-Plain">kubectl describe deployment my-first-deployment</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="l l-Scalar l-Scalar-Plain"># Verify ReplicaSet</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get rs</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Pod</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get po</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="l l-Scalar l-Scalar-Plain"># The describe -o yaml of the pod will show the value as Replicaset and it is the part of the deployment.</span>
+</span></code></pre></div>
+We have the rollout history, so we can switch back to older revisions using revision history.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Verify Rollout History</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="l l-Scalar l-Scalar-Plain"># deployment.apps/my-first-deployment</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="l l-Scalar l-Scalar-Plain"># REVISION  CHANGE-CAUSE</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="l l-Scalar l-Scalar-Plain"># 1         &lt;none&gt;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="l l-Scalar l-Scalar-Plain"># Update REVISION CHANGE-CAUSE for Kubernetes Deployment</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl annotate deployment/my-first-deployment kubernetes.io/change-cause=&quot;Deployment CREATE - App Version 1.0.0&quot;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Rollout History</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="l l-Scalar l-Scalar-Plain"># deployment.apps/my-first-deployment</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="l l-Scalar l-Scalar-Plain"># REVISION  CHANGE-CAUSE</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="l l-Scalar l-Scalar-Plain"># 1         Deployment CREATE - App Version 1.0.0</span>
+</span></code></pre></div>
+The text in the change-cause is the annotation and it will be displayed in the rollout history. It will help in tracking the deployment effectively.</p>
+<h4 id="scale-the-deployment">Scale the deployment.</h4>
+<p>Scale the deployment to increase the number of replicas (pods). Till now in the <code>kubectl get pods</code> we see 1 pod.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Scale Up the Deployment</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl scale --replicas=10 deployment/&lt;Deployment-Name&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl scale --replicas=10 deployment/my-first-deployment</span><span class="w"> </span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Deployment</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                 READY   UP-TO-DATE   AVAILABLE   AGE</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment  10/10   10           10          7m59s</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="l l-Scalar l-Scalar-Plain"># It is 10/10 meaning 10 pods are running.</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="l l-Scalar l-Scalar-Plain"># Verify ReplicaSet</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get rs</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Pods</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get po</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="l l-Scalar l-Scalar-Plain"># Scale Down the Deployment</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="l l-Scalar l-Scalar-Plain">kubectl scale --replicas=2 deployment/my-first-deployment</span><span class="w"> </span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span></code></pre></div>
+In the workload and inside the pods there will be 2 pods. </p>
+<p>Expose Deployment with a service (LoadBalancer Service) to access the application externally (from internet)</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span><span class="w"> </span><span class="c1"># No service is created yet.</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">#NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">#kubernetes   ClusterIP   10.0.0.1     &lt;none&gt;        443/TCP   4d4h</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Expose Deployment as a Service</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl expose deployment &lt;Deployment-Name&gt;  --type=LoadBalancer --port=80 --target-port=80 --name=&lt;Service-Name-To-Be-Created&gt;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="l l-Scalar l-Scalar-Plain"># The target port is the container port.</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="l l-Scalar l-Scalar-Plain">kubectl expose deployment my-first-deployment --type=LoadBalancer --port=80 --target-port=80 --name=my-first-deployment-service</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="l l-Scalar l-Scalar-Plain"># service/my-first-deployment-service exposed.</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="l l-Scalar l-Scalar-Plain"># Get Service Info</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                        TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="l l-Scalar l-Scalar-Plain"># kubernetes                  ClusterIP      10.0.0.1     &lt;none&gt;        443/TCP          4d4h</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-service  LoadBalancer   10.0.4.167   34.66.8.33     80:30064/TCP     10s</span>
+</span></code></pre></div>
+In the browser the url <code>34.66.8.33</code> will show the application.</p>
+<h3 id="kubernetes-update-deployment">Kubernetes Update Deployment.</h3>
+<p>We can update the deployment using 2 ways - Set image and Edit Deployment.
+Updating Application version V1 to V2 using "Set Image" Option.<br />
+Please Check the container name in spec.container.name yaml output and make a note of it and replace in kubectl set image command.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Get Container Name from current deployment</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deployment my-first-deployment -o yaml</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="l l-Scalar l-Scalar-Plain"># Get the name in spec.container.name</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="l l-Scalar l-Scalar-Plain"># Update Deployment - SHOULD WORK NOW</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl set image deployment/&lt;Deployment-Name&gt; &lt;Container-Name&gt;=&lt;Container-Image&gt;</span><span class="w"> </span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl set image deployment/my-first-deployment kubenginx=stacksimplify/kubenginx:2.0.0</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Rollout Status</span><span class="w"> </span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout status deployment/my-first-deployment</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="l l-Scalar l-Scalar-Plain"># deployment &quot;my-first-deployment&quot; successfully rolled out.</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Deployment</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span></code></pre></div>
+Verify the Events and understand that Kubernetes by default do "Rolling Update" for new application releases.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Describe Deployment</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl describe deployment my-first-deployment</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="l l-Scalar l-Scalar-Plain">#Events</span><span class="p p-Indicator">:</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1">#  Type    Reason             Age   From                     Message</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">#  ----    ------             ----  ----                     -------</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1">#  Normal  ScalingReplicaSet  23m   deployment-controller    Scaled up replica set my-first-deployment-556656d99 to 1</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1">#  Normal  ScalingReplicaSet  16m   deployment-controller    Scaled up replica set my-first-deployment-556656d99 to 10 from 1</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1">#  Normal  ScalingReplicaSet  14m   deployment-controller    Scaled down replica set my-first-deployment-556656d99 to 2 from 10</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">#  Normal  ScalingReplicaSet  88s   deployment-controller    Scaled up replica set my-first-deployment-96775f7f4 to 1</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">#  Normal  ScalingReplicaSet  85s   deployment-controller    Scaled down replica set my-first-deployment-556656d99 to 1 from 2 ### It changed from 1 to 2 meaning a new deployment will make a new then when its running it will make the latest. It is rolling update.</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1">#  Normal  ScalingReplicaSet  84s   deployment-controller    Scaled up replica set my-first-deployment-96775f7f4 to 2 from 1</span>
+</span></code></pre></div>
+When we are updating an application it will create a new replicaset and do a rolling update.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get rs</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                          DESIRED   CURRENT   READY   AGE</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-556656d99 0         0         0       26m</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-96775f7f4 2         2         2       4m19s</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get pods</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                                READY   STATUS    RESTARTS   AGE</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-96775f7f4-2xgvg 1/1     Running   0          4m39s</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-96775f7f4-zx8tk 1/1     Running   0          4m35s</span>
+</span></code></pre></div></p>
+<p>The pod is showing the hash of the new replicaset.<br />
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Verify Rollout History</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="l l-Scalar l-Scalar-Plain"># Update REVISION CHANGE-CAUSE</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="l l-Scalar l-Scalar-Plain">kubectl annotate deployment/my-first-deployment kubernetes.io/change-cause=&quot;Deployment UPDATE - App Version 2.0.0 - SET IMAGE OPTION&quot;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="l l-Scalar l-Scalar-Plain"># Verify Rollout History</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span></code></pre></div>
+The Ip <code>34.66.8.33</code> will show the latest version.</p>
+<p>Update the Application from V2 to V3 using "Edit Deployment" Option.  </p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Edit Deployment</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl edit deployment/&lt;Deployment-Name&gt;</span><span class="w"> </span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl edit deployment/my-first-deployment</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="l l-Scalar l-Scalar-Plain"># Change From 2.0.0</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kubenginx:2.0.0</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># Change To 3.0.0</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kubenginx:3.0.0</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="c1"># Verify the version the history and the rollout status. The service IP should show the latest version.</span>
+</span></code></pre></div>
+<h3 id="rollback-to-previous-version">Rollback to previous version.</h3>
+<p>Rollback to previoud version and Rollback to specific version.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># List Deployment Rollout History</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="l l-Scalar l-Scalar-Plain"># deployment.apps/my-first-deployment</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="l l-Scalar l-Scalar-Plain"># REVISION    CHANGE-CAUSE</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="l l-Scalar l-Scalar-Plain"># 1           Deployment CREATE - App Version 1.0.0</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="l l-Scalar l-Scalar-Plain"># 2           Deployment UPDATE - App Version 2.0.0 - SET IMAGE OPTION</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="l l-Scalar l-Scalar-Plain"># 3           Deployment UPDATE - App Version 3.0.0 - EDIT DEPLOYMENT OPTION</span>
+</span></code></pre></div>
+<p>The change cause is not there then with <code>kubectl rollout history deployment/my-first-deployment --revision=3</code> we can see the changes.</p>
+<p>The rollout to the previous version meaning the last version then the last version revision number should be 4 meaning the max version is the latest version.</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Undo Deployment</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout undo deployment/my-first-deployment</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="l l-Scalar l-Scalar-Plain"># List Deployment Rollout History</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="l l-Scalar l-Scalar-Plain"># deployment.apps/my-first-deployment</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="l l-Scalar l-Scalar-Plain"># REVISION  CHANGE-CAUSE</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="l l-Scalar l-Scalar-Plain"># 1         Deployment CREATE - App Version 1.0.0</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="l l-Scalar l-Scalar-Plain"># 3         Deployment UPDATE - App Version 3.0.0 - EDIT DEPLOYMENT OPTION</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="l l-Scalar l-Scalar-Plain"># 4         Deployment UPDATE - App Version 2.0.0 - SET IMAGE OPTION</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                 READY   UP-TO-DATE   AVAILABLE   AGE</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment  2/2     2            2           9m43s</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get rs</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                          DESIRED   CURRENT   READY   AGE</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-556656d99 0         0         0       9m49s</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-5d89c946f 0         0         0       6m44s</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-96775f7f4 2         2         2       7m49s</span>
+</span></code></pre></div>
+There are 3 deployments so 3 replica sets and teh active has the pods.
+The rollback to specific verion. <code>kubectl rollout undo deployment/my-first-deployment --to-revision=3</code> The latest number is 4 and with the rollback the revision 3 will be changed to the increase number 5.</p>
+<p>The rolling restart of the application. The pod count is 2 so its easy to remove and restart and when there are 100 of pods then rolling restart command via deployment will be used. Rolling restarts will kill the existing pods and recreate new pods in a rolling fashion.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Rolling Restarts</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout restart deployment/&lt;Deployment-Name&gt;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout restart deployment/my-first-deployment</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="l l-Scalar l-Scalar-Plain"># Get list of Pods</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get po</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="l l-Scalar l-Scalar-Plain"># There is no downtime of the application and one will be terminated and the other will be created.</span>
+</span></code></pre></div>
+<h4 id="pause-and-resume-the-deployments">Pause and Resume the deployments.</h4>
+<p>When we want many changes in the deployment then pause and do the change and then deploy.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># In the rollout version first see the deployment version.</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1"># Pause the Deployment</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout pause deployment/&lt;Deployment-Name&gt;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout pause deployment/my-first-deployment</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="l l-Scalar l-Scalar-Plain"># Update Deployment - Application Version from V3 to V4.</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="l l-Scalar l-Scalar-Plain"># When there is no pause then the set image will directly deploy the application.</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="l l-Scalar l-Scalar-Plain">kubectl set image deployment/my-first-deployment kubenginx=stacksimplify/kubenginx:4.0.0</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="l l-Scalar l-Scalar-Plain"># Check the Rollout History of a Deployment</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="l l-Scalar l-Scalar-Plain"># Observation</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">No new rollout should start, we should see same number of versions as we check earlier with last version number matches which we have noted earlier.</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="c1"># Get list of ReplicaSets</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get rs</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="c1"># Observation: No new replicaSet created. We should have same number of replicaSets as earlier when we took note.</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="c1"># Make one more change: set limits to our container</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="l l-Scalar l-Scalar-Plain">kubectl set resources deployment/my-first-deployment -c=kubenginx --limits=cpu=20m,memory=30Mi</span>
+</span></code></pre></div>
+Resume the deployment.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Resume the Deployment</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout resume deployment/my-first-deployment</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="l l-Scalar l-Scalar-Plain"># Check the Rollout History of a Deployment</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span><span class="w">  </span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="l l-Scalar l-Scalar-Plain"># Observation</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">You should see a new version got created</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1"># Update REVISION CHANGE-CAUSE</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="l l-Scalar l-Scalar-Plain">kubectl annotate deployment/my-first-deployment kubernetes.io/change-cause=&quot;Deployment PAUSE RESUME Demo - App Version 4.0.0 &quot;</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="c1"># Check the Rollout History of a Deployment</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="l l-Scalar l-Scalar-Plain">kubectl rollout history deployment/my-first-deployment</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="c1"># Get list of ReplicaSets</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get rs</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="c1"># Observation: You should see new ReplicaSet.</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="c1"># Get Load Balancer IP</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span></code></pre></div></p>
+<p>Delete all the deployment and the services.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                 READY   UP-TO-DATE   AVAILABLE   AGE</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment  2/2     2            2           52m</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="l l-Scalar l-Scalar-Plain">kubectl delete deploy my-first-deployment</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="l l-Scalar l-Scalar-Plain"># deployment.apps &quot;my-first-deployment&quot; deleted</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="l l-Scalar l-Scalar-Plain"># NAME                         TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)          AGE</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="l l-Scalar l-Scalar-Plain"># kubernetes                   ClusterIP      10.0.0.1       &lt;none&gt;           443/TCP          99m</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="l l-Scalar l-Scalar-Plain"># my-first-deployment-service   LoadBalancer   10.0.11.171    35.222.252.200   80:31950/TCP     52m</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="l l-Scalar l-Scalar-Plain">kubectl delete svc my-first-deployment-service</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="l l-Scalar l-Scalar-Plain"># service &quot;my-first-deployment-service&quot; deleted</span>
+</span></code></pre></div></p>
+<h3 id="kubernetes-service">Kubernetes Service.</h3>
+<p>We have creates Kubernetes Service of type LoadBalancer to access the application externally. There are many services - ClusterIp Service, NodePort Service, Headless Service, LoadBalancer Service, ExternalName Service and Ingress Service.</p>
+<p>Cluster IP (default): Used for internal communication between applications inside a Kubernetes cluster with a stable internal IP. The default is the Cluster Ip service.</p>
+<p>NodePort: Clients send requests to the IP address of a worker node on one or more nodePort values that are specified by the Service.</p>
+<p>Ingress: An advanced load balancer that provides context path-based routing, SSL, SSL Redirect, and more — operates at HTTP Layer 7.</p>
+<p>LoadBalancer: Primarily for Cloud Providers to integrate with their Load Balancers.</p>
+<p>ExternalName: Internal clients use the DNS name of a Service as an alias for an external DNS name.</p>
+<p>Headless: Used for discovering individual pods (especially Pod IPs), allowing another service to interact directly with the Pods instead of a proxy.</p>
+<h4 id="cluster-ip-service">Cluster IP Service.</h4>
+<p>docs/images/ClusterIPService.png
+Create a deployment for Backend Application (Spring Boot REST Application) Create a ClusterIP service for load balancing backend application.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Create Deployment for Backend Rest App</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl create deployment my-backend-rest-app --image=stacksimplify/kube-helloworld:1.0.0</span><span class="w"> </span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="l l-Scalar l-Scalar-Plain"># Create ClusterIp Service for Backend Rest App</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="l l-Scalar l-Scalar-Plain">kubectl expose deployment my-backend-rest-app --port=8080 --target-port=8080 --name=my-backend-service</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="l l-Scalar l-Scalar-Plain"># The cluster IP service port is 8080 and the service port is 8080.</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="l l-Scalar l-Scalar-Plain"># Observation</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">We don&#39;t need to specify &quot;--type=ClusterIp&quot; because default setting is to create ClusterIp Service.</span><span class="w"> </span>
+</span></code></pre></div>
+<p>The frontend application is deployed as load balancer services. The backend service deployed name is my-backend-service. </p>
+<p>The frontend should use the name properly. In Nginx reverse proxy, ensure backend service name my-backend-service is updated when you are building the frontend container. We already built it and put ready for this demo (stacksimplify/kube-frontend-nginx:1.0.0)</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="l l-Scalar l-Scalar-Plain">server {</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">listen       80;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">server_name  localhost;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">location / {</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain"># Update your backend application Kubernetes Cluster-IP Service name  and port below</span><span class="w">      </span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain"># proxy_pass http://&lt;Backend-ClusterIp-Service-Name&gt;:&lt;Port&gt;;</span><span class="w">      </span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">proxy_pass http://my-backend-service:8080;</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">error_page   500 502 503 504  /50x.html;</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">location = /50x.html {</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">root   /usr/share/nginx/html;</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="l l-Scalar l-Scalar-Plain">}</span>
+</span></code></pre></div>
+The deployment for the frontend service.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Create Deployment for Frontend Nginx Proxy</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl create deployment my-frontend-nginx-app --image=stacksimplify/kube-frontend-nginx:1.0.0</span><span class="w"> </span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deploy</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="l l-Scalar l-Scalar-Plain"># Create LoadBalancer Service for Frontend Nginx Proxy</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl expose deployment my-frontend-nginx-app  --type=LoadBalancer --port=80 --target-port=80 --name=my-frontend-service</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="l l-Scalar l-Scalar-Plain"># Get Load Balancer IP</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get svc</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="l l-Scalar l-Scalar-Plain">http://&lt;External-IP-from-get-service-output&gt;/hello</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="l l-Scalar l-Scalar-Plain">curl http://&lt;External-IP-from-get-service-output&gt;/hello</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="l l-Scalar l-Scalar-Plain"># Scale backend with 10 replicas</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="l l-Scalar l-Scalar-Plain">kubectl scale --replicas=10 deployment/my-backend-rest-app</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="l l-Scalar l-Scalar-Plain"># Test again to view the backend service Load Balancing</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="l l-Scalar l-Scalar-Plain">http://&lt;External-IP-from-get-service-output&gt;/hello</span>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="l l-Scalar l-Scalar-Plain">curl http://&lt;External-IP-from-get-service-output&gt;/hello</span>
+</span></code></pre></div></p>
+<p>When done then delete the svc and the deployments.</p>
+<h3 id="kubernetes-pod-manifest-in-yaml-declarative">Kubernetes Pod manifest in yaml - declarative.</h3>
+<p>The main parts in the yaml - apiVersion, kind, metadata and spec.</p>
+<p>In the Kubernetes documents like API refrence we will see Workload Reference and there are many workloads - Pod, ReplicaSet, Deployment, StatefulSet, DaemonSet, Job and CronJob. The point to create the pod so will see the pod reference.</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"> </span><span class="c1"># The api group need to see the latest in the Kubernetes API reference.</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-first-pod</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp-pod</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">    </span><span class="nt">containers</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-first-pod-container</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kubenginx:1.0.0</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">            </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span></code></pre></div>
+The pods are not created individually the deployment is created and it will create the pod.</p>
+<h3 id="kubernetes-load-balancer-service-manifest-in-yaml-declarative">Kubernetes Load Balancer Service manifest in yaml - declarative.</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w">       </span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp-pod-loadbalancer-service</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp-pod</span><span class="w">    </span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"> </span><span class="c1"># Service Port.</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"> </span><span class="c1"># Container port.</span>
+</span></code></pre></div>
+<p>The selector - It routes service traffic to the pods with the label and key value matching the selector. 
+When we create a loadbalancer service it will create the external IP address and when a request to the service it should be directed to the pod and selector will tell the pod name.
+The pod label that is created is in the selector app.</p>
+<h3 id="kubernetes-replicaset-manifest-in-yaml-declarative">Kubernetes ReplicaSet manifest in yaml - declarative.</h3>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span><span class="w"> </span><span class="c1"># Replica Set API version in the Kubernetes API reference.</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReplicaSet</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="c1"># Dictionary</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp2-rs</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="nt">spec</span><span class="p">:</span><span class="w"> </span><span class="c1"># Dictionary</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"> </span><span class="c1"># LabelSelector in the document and the matchLAbel is a key value pair. The pod label should match the selector key value.</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp2</span><span class="w"> </span><span class="c1"># The label should match the loadbalancer service then it the request to the loadbalancer service will be forwarded to the pods created by the replicaset.</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w"> </span><span class="c1"># Dictionary</span>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp2-pod</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="c1"># Dictionary</span>
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp2</span><span class="w">  </span><span class="c1"># Key value pairs</span>
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"> </span><span class="c1"># List The pod things like the container.</span>
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp2-container</span>
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kubenginx:2.0.0</span>
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a><span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span></code></pre></div>
+https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+To run the replicaset <code>kubectl create -f replicaset-demo.yml</code> to see the replica set <code>kubectl get rs</code> and pods name <code>kubectl get pod</code> and to delete the replicaset <code>kubectl delete -f replicaset-demo.yml</code></p>
+<p>To test the replicaset we need to create a loadbalancer service and the selector should match the pod label of the replicaset. </p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w">       </span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replicaset-loadbalancer-service</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp2</span><span class="w">    </span><span class="c1"># The name should match with the name of the replicaset selector label.</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"> </span><span class="c1"># Service Port.</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"> </span><span class="c1"># Container port.</span>
+</span></code></pre></div>
+<h3 id="kubernetes-deployment-manifest-in-yaml-declarative">Kubernetes Deployment manifest in yaml - declarative.</h3>
+<p>Deployment is a superset of replicaset and it will create the replicaset and the pods. The deployment will have more features than replicaset.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp3-deployment</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp3</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp3-pod</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp3</span>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp3-container</span>
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kubenginx:3.0.0</span>
+</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a><span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span></code></pre></div></p>
+<h3 id="service">Service.</h3>
+<h4 id="nodeport-service">NodePort Service.</h4>
+<p>NodePort Service - It allows external clients to access pods via network ports opened on the Kubernetes nodes.  </p>
+<p>In case GKE cluster is a public cluster and the nodes have the external IP port then the GKE cluster nodes are internet accessible and Nodeport service is applicable.  </p>
+<p>Nodeport range 30000-32768 on Kubernetes Nodes (range are customizable).</p>
+<p>In real-world, NodePort Services are not used in production grade implementations.</p>
+<p>NodePort Services are generally used to test our application by external clients via Internet provided our Kubernetes Nodes are at internet edge.</p>
+<p>NodePortServices.png</p>
+<p>The Nodeport services is deployed and the external Ip is used to connect to the pod. The image is as per the Kubernetes architecture.</p>
+<p>NodePortGKE.png</p>
+<p>When we deploy the Nodeport service same like any service yaml. The application url will give timeout error. The url <code>http://&lt;NODE_EXTERNAL_IP&gt;:&lt;NodePort&gt;</code> will give timeout error. The reason is the firewall rules are not allowing the port to be accessed. The firewall rules need to be created to allow the Nodeport range 30000-32768.</p>
+<p>Create the firewall rules.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Create Firewall Rule</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="l l-Scalar l-Scalar-Plain">gcloud compute firewall-rules create fw-rule-gke-node-port \</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--allow tcp:NODE_PORT</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="l l-Scalar l-Scalar-Plain"># Replace NODE_PORT</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="l l-Scalar l-Scalar-Plain">gcloud compute firewall-rules create fw-rule-gke-node-port \</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--allow tcp:30080</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="l l-Scalar l-Scalar-Plain"># List Firewall Rules</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="l l-Scalar l-Scalar-Plain">gcloud compute firewall-rules list</span>
+</span></code></pre></div>
+In the console in VPC network will see the firewall rules. 
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># Delete Kubernetes Resources</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl delete -f kube-manifests</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="l l-Scalar l-Scalar-Plain"># Delete NodePort Service Firewall Rule</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="l l-Scalar l-Scalar-Plain">gcloud compute firewall-rules delete fw-rule-gke-node-port</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="l l-Scalar l-Scalar-Plain"># List Firewall Rules</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="l l-Scalar l-Scalar-Plain">gcloud compute firewall-rules list</span>
+</span></code></pre></div></p>
+<h4 id="headless-service">Headless Service.</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp1-headless-service</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">  </span><span class="c1">#type: ClusterIP # ClusterIP, # NodePort</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">  </span><span class="nt">clusterIP</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span><span class="w"> </span><span class="c1"># The clusterIP should be Node.</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp1</span>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span>
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"> </span><span class="c1"># Service Port </span>
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"> </span><span class="c1"># Container Port # When using Headless Service, we should use both the ‘Service Port and Target Port’ same.</span>
+</span></code></pre></div>
+<p>Headless Service directly sends traffic to Pod with Pod IP and Container Port. DNS resolution directly happens from headless service to Pod IP.</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl-pod</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curlimages/curl</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;sleep&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;600&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</span></code></pre></div>
+We cannot connect to ClusterIP Services directly from internet to test Headless Service Concept.
+We will deploy a curl pod in GKE Cluster so we can connect to curl pod in GKE Cluster and test the Headless Service Concept.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.tabs.sticky", "navigation.expand", "navigation.path", "toc.follow", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.expand", "content.code.mermaid"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
