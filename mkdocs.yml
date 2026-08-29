@@ -6,6 +6,7 @@ nav:
       - Fundamentals: Kubernetes/01KubernetesFundamental.md
       - Kubernetes Interview: Kubernetes/KubernetesInterview.md
       - Kubernetes Command: Kubernetes/Kubernetes.md
+      - Kubernetes Interview Part 1: Kubernetes/InterviewPart1.md
   - Platform Engineering:
       - Fundamentals: PlatformEngineering.md
   - Linux:
