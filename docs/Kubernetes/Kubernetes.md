@@ -1,8 +1,4 @@
-A Pod is a single instance of an application.   
-A POD is the smallest object that you can create in Kubernetes.   
-A Pod can contain one or more containers.   
-The containers in a Pod share the same network namespace, which means they can communicate with each other using localhost.   
-Pods are ephemeral, meaning they can be created and destroyed as needed.
+
 
 ReplicaSet - A replicaSet will maintain a stable set of replica Pods running at any given time. It is used to guarantee the availability of a specified number of identical Pods. 
 
@@ -70,58 +66,6 @@ The Autopilot control plane and the nodes are maintained by GKE and user deploy 
 
 Autoscaling on the nodes will be taken care by the autopilot cluster.
 
-## Kubernetes Architecture.
-
-![Kubernetes Master Node Worker Node](../images/KubernetesMasterNodeWorkerNode.png)
-
-In every worker node there will be kubelet and kube-proxy.
-
-#### Master Node.
-**kube-apiserver** - It acts as front end for the Kubernetes control plane. It exposes the _Kubernetes API_.
-
-Command line tools (like kubectl), Users and even Master components (scheduler, controller manager, etcd) and Worker node components like (Kubelet) everything talk with API Server.
-
-**etcd** - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.
-
-It stores all the masters and worker node information. It acts as a db of the cluster.
-
-**kube-scheduler** - Scheduler is responsible for distributing containers across multiple nodes.
-
-It watches for newly created Pods with no assigned node, and selects a node for them to run on. 
-
-Schedule the pod in the worker node and the kube-scheduler plays an key role.
-
-**kube-controller-manager** - Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases.
-
-Node Controller - Responsible for noticing and responding when nodes go down.
-
-Replication Controller - Responsible for maintaining the correct number of pods for every replication controller object in the system.
-
-Endpoints Controller - Populates the Endpoints object (that is, joins Services & Pods).
-
-Service Account & Token Controller - Creates default accounts and API Access for new namespaces.
-
-**Cloud-controller-manager** - A Kubernetes control plane component that embeds cloud-specific control logic.
-• It only runs controllers that are specific to your cloud provider. It is not present in on-premise kubernetes cluster. It is present for control planes GKE, AWS.
-• On-Premise Kubernetes clusters will not have this component.
-• Node controller: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
-• Route controller: For setting up routes in the underlying cloud infrastructure
-• Service controller: For creating, updating and deleting cloud provider load balancer
-• Many more controllers might be present and will differ from cloud to cloud based on that respective cloud Kubernetes Platform design and Integrations to their Cloud products.
-
-#### Worker Node.
-
-**Container Runtime** - Container Runtime is the underlying software where all Kubernetes components run.
-In GKE, the default runtime is containerd, but there are also options such as - Ubuntu with Containerd, Ubuntu with Docker, Windows.  
-In the cluster node pool the nodes will show the container option.
-
-
-**Kubelet** - Kubelet is the agent that runs on every node in the cluster.
-This agent is responsible for making sure that containers are running in a Pod on a node.
-
-**Kube-Proxy** - It is a network proxy that runs on each node in your cluster.
-It maintains network rules on nodes.
-In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
 #### Pod.
 In Kubernetes the target is to deploy the application in the form of container on worker nodes in the cluster.   
 The container image is needed. The container is encapsulated in Pods.  

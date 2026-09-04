@@ -52,7 +52,7 @@ The approach is similar for all the tools and the technologies. The developer wi
 
 The ArgoCD detect the change and synchronize with the Kubernetes cluster. The application deployed using the rolling update strategies and post deployment the health checks were performed before marking the deployment as successful.
 
-### Why you used the rolling update and not canary deployment itthe new trend.
+### Why you used the rolling update and not canary deployment it the new trend.
 
 ### Developer commits the AWS access key. In making the CICD pipeline any config that will help. What immediate action you should take and how would you prevent from happening it further.
 
