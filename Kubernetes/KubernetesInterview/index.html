@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-do-you-first-verify-if-the-pods-looks-like-running-but-the-users-are-seeing-some-errors" class="md-skip">
+        <a href="#kubernetes-fundamentals" class="md-skip">
           Skip to content
         </a>
       
@@ -574,6 +574,206 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#kubernetes-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-kubernetes-and-what-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Kubernetes and what problem it solves.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Architecture.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Architecture.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-node-master-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Node / Master Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-request-and-object-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Request and object Lifecycle.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Request and object Lifecycle.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-internally-when-we-run-kubectl-apply-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens internally when we run kubectl apply -f?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Pod?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-containerport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is containerPort?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-a-pod-have-multiple-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can a pod have multiple container?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#give-a-code-example-of-multi-container-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Give a code example of multi container pod?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Manifest.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Manifest.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-main-parts-of-the-kubernetes-yaml-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the main parts of the Kubernetes YAMl manifest?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-imperative-and-declarative-kubernetes-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between imperative and declarative Kubernetes configuration?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-replicaset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is replicaSet?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-the-replicaset-knows-which-pods-belong-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How does the replicaset knows which pods belong to it?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-kubernetes-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the Kubernetes Deployment?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-do-you-first-verify-if-the-pods-looks-like-running-but-the-users-are-seeing-some-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -583,8 +783,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#what-is-the-difference-between-readiness-and-liveliness-of-a-kubernetes-pod" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -592,6 +792,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1226,6 +1431,206 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#kubernetes-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-kubernetes-and-what-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Kubernetes and what problem it solves.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Architecture.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Architecture.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-node-master-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Node / Master Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-request-and-object-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Request and object Lifecycle.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Request and object Lifecycle.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens-internally-when-we-run-kubectl-apply-f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens internally when we run kubectl apply -f?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a Pod?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-containerport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is containerPort?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-a-pod-have-multiple-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can a pod have multiple container?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#give-a-code-example-of-multi-container-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Give a code example of multi container pod?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Manifest.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Manifest.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-the-main-parts-of-the-kubernetes-yaml-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are the main parts of the Kubernetes YAMl manifest?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-imperative-and-declarative-kubernetes-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the difference between imperative and declarative Kubernetes configuration?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-replicaset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is replicaSet?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-the-replicaset-knows-which-pods-belong-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How does the replicaset knows which pods belong to it?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-the-kubernetes-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is the Kubernetes Deployment?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-do-you-first-verify-if-the-pods-looks-like-running-but-the-users-are-seeing-some-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1235,8 +1640,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#what-is-the-difference-between-readiness-and-liveliness-of-a-kubernetes-pod" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1244,6 +1649,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1314,6 +1724,320 @@
 
   <h1>Kubernetes Interview</h1>
 
+<h3 id="kubernetes-fundamentals">Kubernetes Fundamentals</h3>
+<h3 id="what-is-kubernetes-and-what-problem-it-solves">What is Kubernetes and what problem it solves.</h3>
+<p>Kubernetes is a container orchestration platform used to deploy, manage, scale, and operate containerized applications.</p>
+<p>The main objective of Kubernetes is to manage the operational challenges of running applications at scale, including -
+Deploying applications.<br />
+Maintaining the desired number of application instances.<br />
+Scaling applications.<br />
+Self-healing. <br />
+Networking.<br />
+Service discovery.<br />
+Load balancing.<br />
+Resource management.<br />
+Rolling updates and rollbacks.</p>
+<p>Kubernetes follows a desired-state model. We declare what we want, for example - <code>Desired State - 3 replicas of an application should be running</code>.</p>
+<p>Kubernetes continuously checks the actual state. Say the state is not matching - <code>Actual State -
+Only 2 Pods are running</code>.</p>
+<p>The Kubernetes controllers then reconcile the actual state with the desired state.<br />
+The main point is Kubernetes is a declarative orchestration platform. We define the desired state, and Kubernetes continuously reconciles the actual state to match it.</p>
+<h3 id="kubernetes-architecture">Kubernetes Architecture.</h3>
+<p><img alt="Kubernetes Master Node Worker Node" src="../../images/KubernetesMasterNodeWorkerNode.png" /></p>
+<p>In every worker node there will be kubelet and kube-proxy.</p>
+<p>There are 2 major parts - Control Plane/ Master Node and Worker Node.</p>
+<h4 id="control-node-master-node">Control Node / Master Node.</h4>
+<p>It makes the decision for the cluster.</p>
+<p>Maintains the desired state.<br />
+Schedules workloads.<br />
+Provides the Kubernetes API.  </p>
+<p>Monitors and manages the cluster.  </p>
+<p>The major Kubernetes control-plane components are: kube-apiserver etcd kube-scheduler kube-controller-manager cloud-controller-manager — when using a cloud provider</p>
+<p><strong>kube-apiserver</strong> - It acts as front end for the Kubernetes control plane. It exposes the <em>Kubernetes API</em>.</p>
+<p>All communication with Kubernetes cluster done through the API server.
+Command line tools (like kubectl), Users and even Master components (scheduler, controller manager, etcd) and Worker node components like (Kubelet) everything talk with API Server.</p>
+<p>When we execute <code>kubectl create deployment nginx --image=nginx</code> kubectl sends to the API server. The API server - receives the request, Validates/authenticates and authorize it.
+Updates the cluster state.<br />
+Stores persistent cluster data in etcd.<br />
+Other control-plane components observe the new state and act accordingly.  </p>
+<p>kube-apiserver is the central entry point to the Kubernetes cluster. It exposes the Kubernetes API and acts as the communication hub between users, kubectl, control-plane components, and worker-node components such as kubelet.</p>
+<p><strong>etcd</strong> - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.</p>
+<p>It stores all the masters and worker node information. It acts as a db of the cluster.</p>
+<p>It stores - Kubernetes cluster state and configuration, including information about things such as - Nodes, Pods, Deployments, Services, Configurations, Secrets, Cluster metadata, Desired state.</p>
+<p>etcd does not store the application container data or the db data. it stores the persistent state and configuration of the cluster and the source of truth for Kubernetes.</p>
+<p><strong>kube-scheduler</strong> - Scheduler is responsible for distributing containers across multiple nodes.</p>
+<p>It watches for newly created Pods with no assigned node, and selects a node for them to run on.</p>
+<p>The kube-scheduler is responsible for deciding which worker node should run a newly created Pod.</p>
+<p>In what way the kube-scheduler select nodes - The scheduler considers factors such as - Available resources, CPU/memory requirements, Node constraints Affinity/anti-affinity, Taints and toleration.</p>
+<p>There is a worker1 - 90% CPU, worker2 - 50% CPU and worker3 - 30% CPU.
+The new pod needs to be schedule the scheduler needs to evaluate the available nodes and select the suitable node based on the scheduling rules and requirements.</p>
+<p>the scheduler does not run the container and it will decide the pod should run in the Node  number and the kubelet on the worker node will run the pod.</p>
+<p><strong>kube-controller-manager</strong> - Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases.</p>
+<p>Node Controller - Responsible for noticing and responding when nodes go down.</p>
+<p>Replication Controller - Responsible for maintaining the correct number of pods for every replication controller object in the system. Deployments normally use ReplicaSets, so in modern clusters you'll more commonly hear about the ReplicaSet controller rather than the older ReplicationController resource.</p>
+<p>Endpoints Controller - Populates the Endpoints object (connects Services &amp; Pods). It keeps the endpoint information updated as Pods are created, deleted, or changed. Kubernetes has moved toward EndpointSlices for scalable endpoint tracking, but the fundamental idea remains: Kubernetes maintains the backend Pod endpoints associated with Services.</p>
+<p>Service Account &amp; Token Controller - These controllers are responsible for service-account-related functionality, including creating default service accounts for namespaces and managing associated API-access credentials/tokens.</p>
+<p><strong>Cloud-controller-manager</strong> - A Kubernetes control plane component that embeds cloud-provider specific control logic.</p>
+<p>• It only runs controllers that are specific to your cloud provider. It is not present in on-premise kubernetes cluster. It is present for control planes GKE, AWS.
+• On-Premise Kubernetes clusters will not have this component.
+• Node controller: It communicates with the cloud provider to determine whether a node still exists in the underlying cloud infrastructure after it stops responding.
+• Route controller: For setting up routes in the underlying cloud infrastructure
+• Service controller: For creating, updating and deleting cloud provider load balancer
+• Many more controllers might be present and will differ from cloud to cloud based on that respective cloud Kubernetes Platform design and Integrations to their Cloud products.</p>
+<h4 id="worker-node">Worker Node.</h4>
+<p>Run the actual application workloads.
+Each worker node has - Kubelet<br />
+Kube-proxy<br />
+Container Runtime.
+The Kubernetes control plane manages the cluster and makes scheduling and orchestration decisions, while worker nodes are responsible for running the application Pods.</p>
+<p><strong>Container Runtime</strong> - Container Runtime is the underlying software responsible for running containers on a Kubernetes node.<br />
+Kubernetes interacts with the runtime through the Container Runtime Interface (CRI).<br />
+In GKE, the default runtime is containerd, but there are also options such as - Ubuntu with Containerd, Ubuntu with Docker, Windows.<br />
+In the cluster node pool the nodes will show the container option.</p>
+<p>The container runtime is the software on the worker node responsible for running containers. Kubernetes communicates with it through the Container Runtime Interface, or CRI. containerd is a common runtime.
+<strong>Kubelet</strong> - Kubelet is the agent that runs on every worker node in the cluster.
+This agent is responsible for making sure that containers are running in a Pod on a node.</p>
+<p>The pod A assigned to worker Node 2. The kubelet on worker node 2 will - </p>
+<p>Receives/observes the Pod specification through the Kubernetes API. <br />
+Works with the container runtime. <br />
+Starts the required containers. <br />
+Monitors them. <br />
+Reports node and Pod status back to the control plane.</p>
+<blockquote>
+<p>Scheduler decides where the Pod runs.
+Kubelet makes sure the Pod actually runs on that node.</p>
+</blockquote>
+<p><strong>Kube-Proxy</strong> - It is a network proxy that runs on each node in your cluster and implement Kubernetes Service networking.
+It maintains network rules on nodes.
+In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.</p>
+<p><strong>Deploying an Nginx pod.</strong>
+When we execute <code>kubectl create deployment nginx --image=nginx</code><br />
+kubectl - API server
+API server - etcd
+The API server validates teh request and persists teh relevant cluster state in etcd.</p>
+<p>The controller notices the deployment needs the required workload or replica state and the pod or the rs is created.</p>
+<p>The Scheduler notices that the new pod creates and does not have a node assigned. It will select a suitable worker node.</p>
+<p>The kubelet on the worker node1 sees the pod is assigned to its node. It tells teh container runtime to create or run the container.</p>
+<p>In case the application is exposed through the Kubernetes service then the node networking rules managed as part of kube-proxy functionality help direct Service traffic to the appropriate Pod endpoints.</p>
+<h2 id="kubernetes-request-and-object-lifecycle">Kubernetes Request and object Lifecycle.</h2>
+<h3 id="what-happens-internally-when-we-run-kubectl-apply-f">What happens internally when we run kubectl apply -f?</h3>
+<p>kubectl reads YAML manifest
+↓
+Request sent to kube-apiserver
+↓
+Authentication
+↓
+Authorization
+↓
+Validation / Admission processing
+↓
+Desired object state stored in etcd
+↓
+Controllers observe desired state
+↓
+Scheduler selects a Worker Node for unscheduled Pods
+↓
+kubelet on the selected Node receives the Pod specification
+↓
+kubelet asks container runtime to create containers
+↓
+Pod starts
+↓
+Controllers continue monitoring desired state</p>
+<h3 id="what-is-a-pod">What is a Pod?</h3>
+<p>A Pod is the smallest deployable unit in Kubernetes.</p>
+<p>Applications are deployed as containers running inside Pods. Containers need an execution and networking abstraction inside Kubernetes. The source notes explain that Pods solve the problem of managing container networking and provide an abstraction around containers.</p>
+<p>The source notes describe a Pod as an abstraction that contains containers and provides:</p>
+<p>Its own network namespace
+An IP address
+A range of ports for containers</p>
+<p>When more application instances are required, Kubernetes creates additional Pods.</p>
+<h3 id="what-is-containerport">What is containerPort?</h3>
+<p>containerPort represents the port on which the application inside the container listens.</p>
+<p>The sample postgreSQL pod code.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:9.6.17</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span><span class="w"> </span><span class="c1"># The postgreSQL application run in port 5432.</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pwd&quot;</span>
+</span></code></pre></div>
+<h3 id="can-a-pod-have-multiple-container">Can a pod have multiple container?</h3>
+<p>A Pod can contain multiple containers. A common pattern is - main application container and sidecar container.
+Examples of sidecar or helper responsibilities include -</p>
+<p>Logging
+Monitoring
+Proxying
+Backup operations
+Supporting application processes</p>
+<p>The containers inside the same Pod share the Pod networking namespace. Containers inside the same Pod share networking. They communicate using localhost:<port> </p>
+<h3 id="give-a-code-example-of-multi-container-pod">Give a code example of multi container pod?</h3>
+<p>The code is a sample of nginx container and curl sidecar container.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-container</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sidecar</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curlimages/curl</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nt">args</span><span class="p">:</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;-c&quot;</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">Hello</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sidecar</span><span class="nv"> </span><span class="s">container;</span><span class="nv"> </span><span class="s">sleep</span><span class="nv"> </span><span class="s">300&quot;</span>
+</span></code></pre></div>
+<p>The command to apply and verify.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f nginx-sidecar-container.yaml</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get pod</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="l l-Scalar l-Scalar-Plain"># Expected output.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="l l-Scalar l-Scalar-Plain"># NAME    READY   STATUS    RESTARTS   AGE</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="l l-Scalar l-Scalar-Plain"># nginx   2/2     Running   0          74s</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="l l-Scalar l-Scalar-Plain"># Access the sidecar container.</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="l l-Scalar l-Scalar-Plain">kubectl exec -it nginx -c sidecar -- /bin/sh</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="l l-Scalar l-Scalar-Plain"># test the nginx container.</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="l l-Scalar l-Scalar-Plain">curl localhost:80</span>
+</span></code></pre></div></p>
+<h2 id="kubernetes-manifest">Kubernetes Manifest.</h2>
+<h3 id="what-are-the-main-parts-of-the-kubernetes-yaml-manifest">What are the main parts of the Kubernetes YAMl manifest?</h3>
+<p>The source notes identify the following main parts - apiVersion
+kind
+metadata
+spec</p>
+<p>apiVersion - Defines the Kubernetes API version for the object.</p>
+<p>kind - Defines the Kubernetes resource type. The type are pod, service, replicaSet, Deployment.</p>
+<p>metadata - contains object information like name, label.</p>
+<p>spec - defines the desired configuration.</p>
+<h3 id="what-is-the-difference-between-imperative-and-declarative-kubernetes-configuration">What is the difference between imperative and declarative Kubernetes configuration?</h3>
+<p>You define the desired state in YAML.</p>
+<p>Example - <code>kubectl apply -f deployment.yaml</code>
+Imperative - You create or modify resources directly using commands.
+Example - <code>kubectl create deployment my-app --image=nginx</code></p>
+<h3 id="what-is-replicaset">What is replicaSet?</h3>
+<p>A ReplicaSet maintains a stable number of replica Pods.</p>
+<p>The desired state replicas:3 3 pods are running and one pod fails replicaset creates a replacement.</p>
+<p>The source notes identify ReplicaSet benefits including - Availability
+Scaling
+Maintaining replica count
+Working with labels and selectors</p>
+<h3 id="how-does-the-replicaset-knows-which-pods-belong-to-it">How does the replicaset knows which pods belong to it?</h3>
+<p>ReplicaSets uses - Labels+Selectors.</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># The pod template must have matching labels.</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span></code></pre></div>
+The code of a replicaSet.</p>
+<p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReplicaSet</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld-rs</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-helloworld-app</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stacksimplify/kube-helloworld:1.0.0</span>
+</span></code></pre></div>
+To deploy the rs <code>kubectl create -f replicaset-demo.yml</code> and to verifi <code>kubectl get replicaset</code>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Describe</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl describe replicaset my-helloworld-rs</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="l l-Scalar l-Scalar-Plain"># Verify pods</span><span class="w"> </span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get pods</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="l l-Scalar l-Scalar-Plain"># Inspect the ownership.</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="l l-Scalar l-Scalar-Plain"># The source note mention using the pod yaml to inspect the rs relationship.</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get pods &lt;pod-name&gt; -o yaml</span>
+</span></code></pre></div></p>
+<h3 id="what-is-the-kubernetes-deployment">What is the Kubernetes Deployment?</h3>
+<p>A Deployment manages application rollout and desired state.
+The relationship flow Deployment - ReplicaSet - Pods.
+When a Deployment is created, Kubernetes creates a ReplicaSet, which creates and maintains the Pods.
+A Deployment manages Pods declaratively. It helps you define - 
+Application/container image
+Number of replicas
+Labels and selectors
+Update strategy</p>
+<p>Imperative approach — Create it using kubectl commands.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Create nginx deployment</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="l l-Scalar l-Scalar-Plain">kubectl create deployment nginx-deployment --image=nginx</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="l l-Scalar l-Scalar-Plain"># It will create deployment name nginx-deployment using the image nginx</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="l l-Scalar l-Scalar-Plain"># Creating with multiple replica.</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="l l-Scalar l-Scalar-Plain">kubectl create deployment nginx-deployment \</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="l l-Scalar l-Scalar-Plain">--image=nginx \</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="l l-Scalar l-Scalar-Plain">--replicas=3</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get deployments</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get replicasets</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="l l-Scalar l-Scalar-Plain">kubectl get pods</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="l l-Scalar l-Scalar-Plain"># Scale the deployment</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="l l-Scalar l-Scalar-Plain">kubectl scale deployment nginx-deployment --replicas=5</span>
+</span></code></pre></div>
+Declarative approach — Define it in a YAML file and apply it.
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="c1"># Name of the Kubernetes Deployment resource</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-deployment</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="c1"># Desired number of Pod replicas</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="c1"># The Deployment uses this selector to identify</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="c1"># the Pods managed by this Deployment</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">  </span><span class="c1"># Template used to create Pods</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">        </span><span class="c1"># The Pod label must match the Deployment selector</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span></code></pre></div></p>
 <h3 id="what-do-you-first-verify-if-the-pods-looks-like-running-but-the-users-are-seeing-some-errors"><strong>What do you first verify if the pods looks like running but the users are seeing some errors ?</strong></h3>
 <p>There are mainly steps to follow in order.</p>
 <p><strong>Pod Status</strong>.</p>

@@ -741,10 +741,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-you-used-the-rolling-update-and-not-canary-deployment-itthe-new-trend" class="md-nav__link">
+  <a href="#why-you-used-the-rolling-update-and-not-canary-deployment-it-the-new-trend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why you used the rolling update and not canary deployment itthe new trend.
+        Why you used the rolling update and not canary deployment it the new trend.
       
     </span>
   </a>
@@ -1464,10 +1464,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-you-used-the-rolling-update-and-not-canary-deployment-itthe-new-trend" class="md-nav__link">
+  <a href="#why-you-used-the-rolling-update-and-not-canary-deployment-it-the-new-trend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why you used the rolling update and not canary deployment itthe new trend.
+        Why you used the rolling update and not canary deployment it the new trend.
       
     </span>
   </a>
@@ -1597,7 +1597,7 @@ To understand the expected traffic pattern, the db requirement, compliance and l
 <h3 id="give-an-example-of-the-cicd-pipeline-that-you-have-build">Give an example of the CICD pipeline that you have build.</h3>
 <p>The approach is similar for all the tools and the technologies. The developer will push the code and the pipeline will be triggered. It will pull the latest code from the git and run the unit test cases and perform the code quality using the sonarqube. When creating the image will use some vulnerability scanning tool like Trivy and then it pushes the image to the ECR. The CD part we have different repositories and there we update the image tag in the github repository. </p>
 <p>The ArgoCD detect the change and synchronize with the Kubernetes cluster. The application deployed using the rolling update strategies and post deployment the health checks were performed before marking the deployment as successful.</p>
-<h3 id="why-you-used-the-rolling-update-and-not-canary-deployment-itthe-new-trend">Why you used the rolling update and not canary deployment itthe new trend.</h3>
+<h3 id="why-you-used-the-rolling-update-and-not-canary-deployment-it-the-new-trend">Why you used the rolling update and not canary deployment it the new trend.</h3>
 <h3 id="developer-commits-the-aws-access-key-in-making-the-cicd-pipeline-any-config-that-will-help-what-immediate-action-you-should-take-and-how-would-you-prevent-from-happening-it-further">Developer commits the AWS access key. In making the CICD pipeline any config that will help. What immediate action you should take and how would you prevent from happening it further.</h3>
 <p>First step to rotate the key and it cannot be used anymore. In the cloud will see the cloud trail and see any suspicious activity happened using the key.</p>
 <p>In the pipeline we can integrate Git secret or Git leak into the pipeline to detect any secret getting pushed or not before the code is getting merged.</p>

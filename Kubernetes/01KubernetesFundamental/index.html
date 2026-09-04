@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-kubernetes-and-what-problem-does-it-solved" class="md-skip">
+        <a href="#the-core-chain" class="md-skip">
           Skip to content
         </a>
       
@@ -544,17 +544,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-kubernetes-and-what-problem-does-it-solved" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What is Kubernetes and what problem does it solved?
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#the-core-chain" class="md-nav__link">
@@ -1518,17 +1507,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-kubernetes-and-what-problem-does-it-solved" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What is Kubernetes and what problem does it solved?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#the-core-chain" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1898,10 +1876,6 @@
 
   <h1>Fundamentals</h1>
 
-<h3 id="what-is-kubernetes-and-what-problem-does-it-solved">What is Kubernetes and what problem does it solved?</h3>
-<p>Kubernetes is a container orchestration platform that runs containerized workload reliably at scale. Containers in theory are not the hard part the hard part is everything around them in production for example making sure deployments are safe, scaling is predictable, recovery from failure is guaranteed and network is stable.</p>
-<p>Without kubernetes there the system included manual effort to see the processes. Kubernetes replaces the control loop - it provides a model to declare the state (The desired state is what we declare in the manifest example 3 replicas of the app, the image, the resource limit) and a controller continuously reconciles the reality to match the desired state. Kubernetes object in this way. </p>
-<p>The desired state is handled by controller running control loops example the deployment is handled by the deployment controller which create and updates replica sets and the replica sets are responsible to keep the right number of pods running. </p>
 <h3 id="the-core-chain">The core chain</h3>
 <p><strong>Pod</strong> → smallest deployable unit. One or more containers sharing an IP and storage. In practice, 1 container per pod (sidecars are the exception, not the rule). Pods are disposable — they don't self-heal, and they get a new IP every time they're recreated.</p>
 <p><strong>Deployment</strong> → manages a ReplicaSet, which manages Pods. You declare "keep 3 replicas of this spec alive" and it handles creation, replacement of dead pods, rolling updates, and rollbacks.</p>
