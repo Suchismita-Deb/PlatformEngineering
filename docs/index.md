@@ -1,10 +1,10 @@
-In cmd project folder - mkdocs new project-name 
-Push to git.
+In cmd project folder - `mkdocs new project-name` - Push to git.
 
+```bash
 pip install mkdocs-material
 pip install ghp-import
 mkdocs gh-deploy
-
+```
 https://suchismita-deb.github.io/PlatformEngineering/
 
 Make the text bold in html short cut.

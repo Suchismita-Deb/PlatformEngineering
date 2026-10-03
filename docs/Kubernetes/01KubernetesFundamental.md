@@ -1,14 +1,3 @@
-Kubernetes.
-
-What is Kubernetes and what problem does it solved?
-
-Kubernetes is a container orchestration platform that runs containerized workload reliably at scale. Containers in theory are not the hard part the hard part is everything around them in production for example making sure deployments are safe, scaling is predictable, recovery from failure is guaranteed and network is stable.
-
-Without kubernetes there the system included a scrappy script or manual effort to see teh processes. Kubernetes replaces the control loop - it provides a model to declare the state (The desired state is what we declare in the manifest example 3 replicas of the app, the image, the resource limit) and a controller continuously reconciles the reality to match the desired state. Kubernetes object in this way.    
-The desired state is handled by controller running control loops example the deployment is handled by the deployment controller which create and updates replica sets and the replica sets are responsible to keep the right number of pods running. 
-
-
-
 ### The core chain
 
 **Pod** → smallest deployable unit. One or more containers sharing an IP and storage. In practice, 1 container per pod (sidecars are the exception, not the rule). Pods are disposable — they don't self-heal, and they get a new IP every time they're recreated.
