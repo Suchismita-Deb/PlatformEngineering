@@ -518,3 +518,4 @@ When there is the service Kubernetes will create the Endpoint object and it will
 
 
 
+In the managed service like GKE wil not get the access to the 

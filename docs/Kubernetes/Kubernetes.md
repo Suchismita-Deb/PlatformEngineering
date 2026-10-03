@@ -74,14 +74,17 @@ Autoscaling on the nodes will be taken care by the autopilot cluster.
 
 ![Kubernetes Master Node Worker Node](../images/KubernetesMasterNodeWorkerNode.png)
 
-In every worker node there will be kubelet and kube-proxy.
+In every worker node there will be kubelet and kube-proxy.   
+The node is the virtual machine and inside node we run the components and the administrative  work. 
 
 #### Master Node.
-**kube-apiserver** - It acts as front end for the Kubernetes control plane. It exposes the _Kubernetes API_.
+The master node does not do the work it direct the work to the worker.
+
+**kube-apiserver** - It acts as front end for the Kubernetes control plane. It exposes the _Kubernetes API_. The request will first go to the APIServer.
 
 Command line tools (like kubectl), Users and even Master components (scheduler, controller manager, etcd) and Worker node components like (Kubelet) everything talk with API Server.
 
-**etcd** - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.
+**etcd** - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data. Its a key - value data store, schema less, not relational data.
 
 It stores all the masters and worker node information. It acts as a db of the cluster.
 
@@ -91,7 +94,7 @@ It watches for newly created Pods with no assigned node, and selects a node for 
 
 Schedule the pod in the worker node and the kube-scheduler plays an key role.
 
-**kube-controller-manager** - Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases.
+**kube-controller-manager** - Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases. It notices the node controller, namespace controller, deployment controller. 
 
 Node Controller - Responsible for noticing and responding when nodes go down.
 
@@ -110,6 +113,7 @@ Service Account & Token Controller - Creates default accounts and API Access for
 • Many more controllers might be present and will differ from cloud to cloud based on that respective cloud Kubernetes Platform design and Integrations to their Cloud products.
 
 #### Worker Node.
+The main purpose of Kubernetes is to host application in the container. The container runs in the worker node.  The nginx container running inside the pod. There will be multiple container in the pod. 
 
 **Container Runtime** - Container Runtime is the underlying software where all Kubernetes components run.
 In GKE, the default runtime is containerd, but there are also options such as - Ubuntu with Containerd, Ubuntu with Docker, Windows.  
@@ -117,12 +121,19 @@ In the cluster node pool the nodes will show the container option.
 
 
 **Kubelet** - Kubelet is the agent that runs on every node in the cluster.
-This agent is responsible for making sure that containers are running in a Pod on a node.
+This agent is responsible for making sure that containers are running in a Pod on a node. It receives the instruction from the control plane node and communicates between the worker node and the master node.
 
 **Kube-Proxy** - It is a network proxy that runs on each node in your cluster.
 It maintains network rules on nodes.
 In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
+
+Example of the flow - User made a request and the APIServer will authenticate and validate the request. The user wanted to create the pod the APIServer will send the request to the etcd and its a database and it will make an entry like pod created. The APIServer will get the update that the etcd has communicated and the scheduler run and see the control plane which node to execute the pod. It reply to the APIServer that it gets the node and the APIServer connect to kubelet in the node. The kubelet create the pod and the APIServer will update the etcd and return to the user.
+
+
+
+
 #### Pod.
+
 In Kubernetes the target is to deploy the application in the form of container on worker nodes in the cluster.   
 The container image is needed. The container is encapsulated in Pods.  
 A pod is a single instance of an application - Meaning in case the target to get 10 instance of the application then we need to create 10 pods.

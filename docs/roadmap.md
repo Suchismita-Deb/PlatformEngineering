@@ -203,5 +203,14 @@ Explain failure modes and recovery.
 -   CAP trade-offs
 
 ### Exit Criteria
-
 Design production systems with justified trade-offs.
+The Devops engineering part ask for the work like the **kernel datapath, packet flow, state management, traffic governance**.
+
+**Linux Isolation Primaries and Container Networking Datapath basics**.  
+
+**Linux Namespace** - How net(network interface, routing tables, sockets), pid, mnt, ipc, uts, user, cgroup namespaces work and isolates the workloads.  
+**Virtual Ethernet (veth) pair** - How veth pair works and how virtual cables bridge a containers isolated network namespace(netns) to the host network namespace.  
+**Docker Networking Drivers** - Difference between bridge(single-host local scope with port mapping), Overlay(multi-host cluster scope with VXLAN encapsulation), Macvlan(directly attach container to host network, lightweight L2 attachments with direct routable IPs not using NAT) and Host(no isolation, container shares host network namespace) networking drivers.
+
+**Kubernetes Network Model**.<br>
+Fundamental Const
