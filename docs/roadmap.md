@@ -176,3 +176,8 @@ The Devops engineering part ask for the work like the **kernel datapath, packet 
 
 **Kubernetes Network Model**.<br>
 Fundamental Const
+
+
+Kubernetes - Replicaset and Replica Controller.
+They are part of the dpeloyment to make th deployment rolling update.
+Services - ClusterIP, NodePort, LoadBalancer, ExternalName.
