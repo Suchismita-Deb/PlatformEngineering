@@ -8,6 +8,7 @@ nav:
       - Kubernetes Interview: Kubernetes/KubernetesInterview.md
       - Kubernetes Command: Kubernetes/Kubernetes.md
       - Kubernetes Interview Part 1: Kubernetes/InterviewPart1.md
+      - Replication Deployments: Kubernetes/ReplicationController_ReplicaSet_Deployment.md
   - Platform Engineering:
       - Fundamentals: PlatformEngineering.md
 
@@ -22,7 +23,7 @@ nav:
   - Hands-On:
       - Fundamentals: HandsOn.md
   - Interview Questions:
-      - Fundamentals: InterviewQuestions.md
+      - Interview1: Interview/Interview01.md
 
 
 markdown_extensions:

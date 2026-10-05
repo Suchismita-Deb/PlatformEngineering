@@ -155,7 +155,6 @@ Find the root cause of an injected production issue.
 ------------------------------------------------------------------------
 
 # Phase 8 -- Cloud (Critical)
-
 ## Know by heart
 
 -   Compute
@@ -165,9 +164,11 @@ Find the root cause of an injected production issue.
 -   Managed DB
 -   Kubernetes Service
 -   Monitoring
--   Secrets
-The Devops engineering part ask for the work like the **kernel datapath, packet flow, state management, traffic governance**.
+-   Secrets  
 
+- The Devops engineering part ask for the work like the **kernel datapath, packet flow, state management, traffic governance**.
+
+### Expectations.
 **Linux Isolation Primaries and Container Networking Datapath basics**.  
 
 **Linux Namespace** - How net(network interface, routing tables, sockets), pid, mnt, ipc, uts, user, cgroup namespaces work and isolates the workloads.  
@@ -178,6 +179,27 @@ The Devops engineering part ask for the work like the **kernel datapath, packet 
 Fundamental Const
 
 
+Kubernetes networking and security.
+
+The tools like Calico, Cilium managing traffic, load balancing and eBPF based technology.  
+They outline how packet routing, namespaces, and virtual Ethernet pairs facilitate communication between pods and nodes, while addressing the underlying role of CNI plugins.
+
+
 Kubernetes - Replicaset and Replica Controller.
-They are part of the dpeloyment to make th deployment rolling update.
+They are part of the deployment to make th deployment rolling update.
 Services - ClusterIP, NodePort, LoadBalancer, ExternalName.
+
+
+
+
+JD.
+
+Hands on experience with monitoring and logging tools (e.g., Prometheus, Splunk, Grafana, CloudWatch).
+Proficient in Linux, Networking concepts (TLS/SSL, DNS, Load Balancers, etc..) and troubleshooting skills in large scale environments.
+Source control management such as Git / Understanding of CI/CD, Release Engineering and DevOps.
+Understanding of security standards, policies, and cryptography.
+Experience with Incident / Problem management and RCA.
+Strong Network, Load Balancing (Nginx, Envoy, NetScaler) experience is a huge plus.
+Good solid understanding using Kubernetes concepts such as networking, Storage, Secrets, Deployments & Containerization.
+Hands-on experience with AliCloud, AWS, or GCP is preferred.
+Strong analytical skills
