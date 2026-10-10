@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../Linux/Fundamental/">
+        <link rel="prev" href="../../Kubernetes/InterviewPart1/">
       
       
-        <link rel="next" href="../../Interview/Interview01/">
+        <link rel="next" href="../../Linux/Fundamental/">
       
       
         
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cloud-networking-like-the-vpc-subnet-security-group-nacl-route-table-internet-gateway-nat-gateway-vpn-gateway-direct-connect" class="md-skip">
+        <a href="#subnet" class="md-skip">
           Skip to content
         </a>
       
@@ -281,11 +281,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Networking/Networking101/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -341,13 +343,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../DevOps/01DevOpsFundamentl/" class="md-tabs__link">
           
   
   
@@ -786,28 +786,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -825,7 +828,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -840,10 +843,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Networking/Networking101/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -859,6 +887,57 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#subnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subnet.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ports.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osi-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSI Model.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1053,31 +1132,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -1095,7 +1171,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1110,35 +1186,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Fundamentals
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../DevOps/01DevOpsFundamentl/" class="md-nav__link">
         
   
   
@@ -1154,46 +1205,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cloud-networking-like-the-vpc-subnet-security-group-nacl-route-table-internet-gateway-nat-gateway-vpn-gateway-direct-connect" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cloud networking like the VPC, Subnet, Security group, NACL, Route table, Internet gateway, NAT gateway, VPN gateway, Direct connect.
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#networking-to-the-cloud-not-in-the-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Networking to the cloud not in the cloud.
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1521,10 +1532,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cloud-networking-like-the-vpc-subnet-security-group-nacl-route-table-internet-gateway-nat-gateway-vpn-gateway-direct-connect" class="md-nav__link">
+  <a href="#subnet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cloud networking like the VPC, Subnet, Security group, NACL, Route table, Internet gateway, NAT gateway, VPN gateway, Direct connect.
+        Subnet.
       
     </span>
   </a>
@@ -1532,10 +1543,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#networking-to-the-cloud-not-in-the-cloud" class="md-nav__link">
+  <a href="#ports" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Networking to the cloud not in the cloud.
+        Ports.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osi-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSI Model.
       
     </span>
   </a>
@@ -1588,7 +1610,7 @@
         <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    DevOps
+    Networking
   </span>
 
         </a>
@@ -1609,27 +1631,96 @@
 
   <h1>Fundamentals</h1>
 
-<h3 id="cloud-networking-like-the-vpc-subnet-security-group-nacl-route-table-internet-gateway-nat-gateway-vpn-gateway-direct-connect">Cloud networking like the VPC, Subnet, Security group, NACL, Route table, Internet gateway, NAT gateway, VPN gateway, Direct connect.</h3>
-<p>Networking in the cloud to understand we need to know Network Function.</p>
-<p>Application load balancer (application layer l7).<br />
-Network load balancer (layer 4).<br />
-Application Gateway - It can be application layer gateway and also loadbalancer.<br />
-Classic load balancer.<br />
-CDN.<br />
-Firewalls - State aware (detects the outgoing request and allow the matching incoming response to the request) or stateless (configure the outbound and inbound that I want to provide for the network service). <br />
-Subnet - It allow to segregate the network into smaller portions. It is done by the way you implement the IP addressing scheme. We can put the subnet mask to define which portaion of the IP address is the subnet and which portion is the host address for the device.    <br />
-NAT Network Address Translation - It a way to use the private IP addresses. These are IP addresses that start liek 10.x.x.x, 172.16.x.x, 192.168.x.x. We use the private IP address and allow to connect to the internet using the NAT gateway inbetween the internet and the private host that translates the private to public and maps it to the TCP or UDP.  This allows the devices in the private network to communicate with the internet while still keeping their private IP addresses hidden from the public internet.<br />
-VPC Virtual Private Cloud - It will allow to create networks or subnetworks within the cloud. There are 2 networks - local network that uses the internet to access the cloud and the network in the cloud. It needs <strong>VPC peering</strong> means connection between your different virtual orivate cloud in the cloud account. In local network there is subnet and VPC as a subnet within the cloud account. There can be multiple subnets within a VPC.<br />
-There are Transit Gateways its like a hub and spoke routing service that ar build in the cloud to allow to route between VPC and on-premise networks. <br />
-Virtual NIC Network Interface Card - It is a virtual network adapters attached to instances or networks. It will include MAC addresses, IP addresses (public/private), VLAN assignment, VLAN assignment, Security group assignment.</p>
-<h3 id="networking-to-the-cloud-not-in-the-cloud">Networking to the cloud not in the cloud.</h3>
-<p>There are private connection and public connection to the cloud.
-VPN - The cloud provider document L2TP/IPSec, SSL VPN, Site-to-Site VPN, Client-to-Site VPN.<br />
-HTTPS - SSL/TLS.<br />
-Private Connections.<br />
-Dedicated connections - The dedicated connection to connect to the cloud provider. The features - high speed, Reliability, Security. The private connection between your LAN to teh cloud service provider.</p>
-<p>docs/images/CloudKubernetes/VPNConnection.png
-VPNConnection.png</p>
+<p>IP Address - The unique address assigned to a device on a network.</p>
+<p>Example - There is Wifi and 4 devices connected to the WIFI and say one of the device should not have instagram and youtube access then using the IP address we can make the connection.</p>
+<p>To generate the IP address the IPv4 standard is used to get the IP address. There are say 10k students in a college and the standard should be followed to maintain the IP address. The IPv4 standard make the IP like 10.1.20.10 and the command to see the IP address is "ipconfig" in windows and "ifconfig" in linux. </p>
+<p>The total range will be 10.1.20.10 and the range 0-255. The total range devices it will manage 0...255 * 0...255 * 0...255 * 0...255 = 4,294,967,296 devices will have the unique IP address. The IP address is divided into 4 octets and each octet is represented by 8 bits. </p>
+<p>The first octet represents the network portion, the second octet represents the subnet portion, and the last two octets represent the host portion.</p>
+<p>When we get the VM instance in GCP then we see the IP address assigned to the instance.
+<img alt="img.png" src="../../images/Networking/IPAddress.png" /></p>
+<h3 id="subnet">Subnet.</h3>
+<p>The application using the VPC (private network) in GCP and asking the network provider that I need 65k IP addresses. The cloud provider gave the range of the Ip and it is given to the company.</p>
+<p>The application has the group of the device and one person used a malicious website and the hacker has the access to the device. The device is part of the group and teh hacker has the access to the group. It is not safe so there is subnet meaning sub networking.</p>
+<p>The Finance team is in separate network and HR in separate network. The team network is the subnetting and it gives security, privacy.</p>
+<p>There are 2 types - Private Subnet (The subnet that doesnot have connection to internet) and Public Subnet(the subnet that has connection to internet). The private subnet is used for the internal communication and the public subnet is used for the external communication.</p>
+<p>The public subnet has the access to the internet and in AWS there we give the routetables to the subnet and the route table has the route to the internet gateway. The private subnet has the route to the NAT gateway and the NAT gateway has the route to the internet gateway. The NAT gateway is used to give the access to the internet for the private subnet.</p>
+<p>The application how they determine the subnet like Finance team has 10k device and HR team has 256 device - When we create the subnet we need to give the range of the IP address and the range is given in CIDR notation. The CIDR is the Classless Inter-Domain Routing and it is used to allocate the IP address and routing.</p>
+<p>GCP - VPC - Subnet and with in the Subnet give the CIDR (172.16.3.0/24) when it need 256 device then the CIDR is /24.
+The IP range 172.16.0.0  - 172.16.255.255 the range is in total and the 256 computer needs a separate group. The IP is the 4 octet meaning 8 bits in each octet meaning total 32 bits and the last part range 0 - 255 meaning it will cover the last octet and the first 3 octet can be fixed.</p>
+<p>--------|--------|--------|--------|
+0-255 | 0-255 | 0-255 | 0-255</p>
+<p>The target to get 256 different number then the last octet should be different.
+Easy way = 32-24 = 8 bit meaning 2^8 = 256 so the last octet will be different and the first 3 octet will be fixed. The CIDR is /24 meaning 24 bits are fixed and the last 8 bits are different. 
+The CIDR can be 172.16.3.0/24 or 172.16.4.0/24 or 172.16.225.0/24 The first part will be fixed and the last part will be different.</p>
+<p>There is a need 2 computer should make a subnet then the CIDR 172.16.3.0/31 meaning (32-31 = 1) 31 bits will be same and the 1 bit will be different. The one bit can have 0 or 1 value so 2 computers.</p>
+<p>The subnet needs 32 computers meaning 2^5 is 32 then the IP should have the (32-5 = 27) bits fixed and the last 5 different. The CIDR will be /27.</p>
+<p>The CIDR /8 meaning 32-8 = 24 there will be 2^24 computers. It is called Class A.</p>
+<p>/8 = Class A.<br />
+/16 = Class B.<br />
+/24 = Class C.</p>
+<p>/30 meaning 32-30 = 2 meaning 2^2 = 4 computers.
+/29 meaning 32-29 = 3 meaning 2^3 = 8 computers.</p>
+<p>In order to get 5 different computers in the subnet meaning 2^2 = 4 (4&lt;5) and 2^3 = 8.
+32-3 = 29 meaning 29 bits will be fixed and the last 3 bits will be different. The CIDR will be /29.</p>
+<p>In general the private subnet Ip starts with 192, 172, 10. The public subnet Ip starts with 8, 9, 1, 2, 3, 4, 5, 6, 7.</p>
+<p>The 8.8.8.8 is the public DNS server provided by Google.</p>
+<h3 id="ports">Ports.</h3>
+<p>When an application is deployed in the VM the application gets a port. To access the application we need the IP address of the VM and the port number.</p>
+<h3 id="osi-model">OSI Model.</h3>
+<p>The OSI model gives the details of the journey of the data and the layer.</p>
+<p><strong>What happens when you hit google.com?</strong></p>
+<p>The first thing that happens is the DNS resolution and the TCP handshake.
+The browser hit the google.com and the wifi router will see in case the url mapped to any IP address. The router has the DNS table and it map the domain name to the IP address.
+The router search in the local cache. In case not then the router goes to the ISP and the ISP has the DNS table and it will search in the local cache. In case not then the ISP goes to the root DNS server and the root DNS server has the list of all the TLD (Top Level Domain) and it will search for .com and it will give the IP address of the .com DNS server. The ISP will go to the .com DNS server and it will search for google.com and it will give the IP address of google.com. The ISP will give the IP address to the router and the router will give the IP address to the browser. </p>
+<p>The next step is teh TCP handshake. The browser will make a TCP connection with google.com using 3 way handshake. The browser get the Ip address of google to send the data it should first see the server or the google is ready to take any request.
+The TCp handshake is the process of establishing a TCP connection between a client and a server. It involves three steps - The client sends a <strong>SYN</strong> (synchronize) packet to the server, the server responds with a <strong>SYN-ACK</strong> (synchronize-acknowledge) packet, and the client sends an <strong>ACK</strong> (acknowledge) packet back to the server. This process ensures that both the client and server are ready to communicate and establishes a reliable connection for data transfer.</p>
+<p>When the TCP connection is established, the browser initiates an HTTPs request to the server, and the server responds with an HTTPs response. The request is https so it the https request in case of FTP then it will be FTP. It is the L7 layer Application layer.</p>
+<p>The next step is the data encryption. The Https meaning the data encryption and formatting and it is L6 layer Presentation layer.</p>
+<p>The browser creates a session and it is L5 layer Session layer. The session is created between the client and the server and it is used to maintain the state of the communication. It is very important in case of the web application where the user is logged in and the session is maintained. In case of Banking application and you send the amount and the session is one min then it will be logged out and the transaction will be failed. The session is maintained when the user is logged in.</p>
+<p>The L7, L6 and the L5 are done by the browser.</p>
+<p>The next step is the data segmentation and it is L4 layer Transport layer. The data is segmented into smaller chunks and each chunk is assigned a sequence number. The sequence number is used to reassemble the data at the destination. The transport layer also provides error detection and correction. the segment of the data are transported with the TCP or UDP protocol.</p>
+<p>The next step is the data routing and it is L3 layer Network layer. The data is routed from the source to the destination based on the IP address. The network layer also provides logical addressing and routing. The data will have the source IP address and the destination IP address. The data will be routed based on the destination IP address. The data in this layer is called the packets.</p>
+<p>The next step is the data framing and it is L2 layer Data Link layer. The data is framed into smaller units called frames. The frames are used to transmit the data over the physical layer. The data link layer also provides error detection and correction. The data in this layer is called the frames. The router is connected to switches and the ethernet port and it is connected to the cable and the data has to travel from the packets to the frames. The data link layer is responsible for the physical addressing and the data will have the source MAC address and the destination MAC address. The data will be routed based on the destination MAC address. The packet cannot be send as switch work in frame and the router work in packet. </p>
+<p>The next step is the data transmission and it is L1 layer Physical layer. The router is connected to the optic cable. The data is transmitted over the physical medium such as copper wire, fiber optic cable, or wireless. The optical cable only understand electric signals. The physical layer also provides the electrical and mechanical specifications for the physical medium. The data in this layer is called the bits. The data will be transmitted as bits over the physical medium.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L7</td>
+<td>Https</td>
+</tr>
+<tr>
+<td>L8</td>
+<td>Encryption</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>Session</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>Segmentation(It is based on the TCP/UDP).</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>Router(IP address packets).</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>Data converted to frames (MAC address).</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>Physical Layer (Switches are connected to the optical cable and data is converted to electric signals).</td>
+</tr>
+</tbody>
+</table>
+<p>When sending the request the data movement is L7 to L1 and the receiver will be taking from L1 to L7.</p>
 
 
 

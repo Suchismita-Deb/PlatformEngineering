@@ -12,7 +12,7 @@
         <link rel="prev" href="../KubernetesInterview/">
       
       
-        <link rel="next" href="../InterviewPart1/">
+        <link rel="next" href="../ReplicationController_ReplicaSet_Deployment/">
       
       
         
@@ -222,6 +222,25 @@
   
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  RoadMap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
@@ -253,6 +272,26 @@
   
   
   Platform Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Networking/Networking101/" class="md-tabs__link">
+          
+  
+  
+  Networking
 
         </a>
       </li>
@@ -348,7 +387,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../InterviewQuestions.md" class="md-tabs__link">
+        <a href="../../Interview/Interview01/" class="md-tabs__link">
           
   
   
@@ -430,6 +469,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RoadMap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -451,10 +517,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -472,8 +538,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -632,8 +698,41 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GKE Autopilot Cluster Architecture.">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Architecture.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Architecture.">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Master Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Node.
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
@@ -701,12 +800,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#kubernetes-update-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -716,8 +810,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#rollback-to-previous-version" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -744,8 +838,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-service" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -772,8 +866,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-pod-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -783,8 +877,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-load-balancer-service-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -794,8 +888,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-replicaset-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -805,8 +899,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-deployment-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -816,8 +910,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#service" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -855,11 +949,44 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ReplicationController_ReplicaSet_Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Replication Deployments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -922,10 +1049,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -943,8 +1070,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1011,10 +1138,99 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/Networking101/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1032,8 +1248,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1100,10 +1316,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -1121,8 +1337,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1189,10 +1405,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -1210,8 +1426,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1278,10 +1494,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1299,8 +1515,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1367,10 +1583,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
@@ -1388,8 +1604,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1406,14 +1622,126 @@
   
   
     <li class="md-nav__item">
-      <a href="../../InterviewQuestions.md" class="md-nav__link">
+      <a href="../../Interview/Interview01/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Fundamentals
+    Interview Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/Interview02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/Interview03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Part 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/Interview04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Part 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Interview/Interview05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Part 5
   
 
     
@@ -1489,8 +1817,41 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="GKE Autopilot Cluster Architecture.">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Architecture.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Architecture.">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Master Node.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worker Node.
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
@@ -1558,12 +1919,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#kubernetes-update-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1573,8 +1929,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#rollback-to-previous-version" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1601,8 +1957,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-service" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1629,8 +1985,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-pod-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1640,8 +1996,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-load-balancer-service-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1651,8 +2007,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-replicaset-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1662,8 +2018,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#kubernetes-deployment-manifest-in-yaml-declarative" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1673,8 +2029,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#service" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1705,6 +2061,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1780,6 +2141,11 @@
 
   <h1>Kubernetes Command</h1>
 
+<p>A Pod is a single instance of an application. <br />
+A POD is the smallest object that you can create in Kubernetes. <br />
+A Pod can contain one or more containers. <br />
+The containers in a Pod share the same network namespace, which means they can communicate with each other using localhost. <br />
+Pods are ephemeral, meaning they can be created and destroyed as needed.</p>
 <p>ReplicaSet - A replicaSet will maintain a stable set of replica Pods running at any given time. It is used to guarantee the availability of a specified number of identical Pods. </p>
 <p>Deployment - A deployment runs multiple replicas of your application and automatically replaces any instances that fail or become unresponsive. It provides declarative updates to Pods and ReplicaSets.<br />
 It is well-suited for stateless applications.</p>
@@ -1837,6 +2203,38 @@ The services and application packaged to the kubernetes will be deployed.</p>
 <p>The Autopilot control plane and the nodes are maintained by GKE and user deploy the workload.</p>
 <p><img alt="" src="../../images/GKEAutoPilotClusterArchitecture.png" /></p>
 <p>Autoscaling on the nodes will be taken care by the autopilot cluster.</p>
+<h2 id="kubernetes-architecture">Kubernetes Architecture.</h2>
+<p><img alt="Kubernetes Master Node Worker Node" src="../../images/KubernetesMasterNodeWorkerNode.png" /></p>
+<p>In every worker node there will be kubelet and kube-proxy.</p>
+<h4 id="master-node">Master Node.</h4>
+<p><strong>kube-apiserver</strong> - It acts as front end for the Kubernetes control plane. It exposes the <em>Kubernetes API</em>.</p>
+<p>Command line tools (like kubectl), Users and even Master components (scheduler, controller manager, etcd) and Worker node components like (Kubelet) everything talk with API Server.</p>
+<p><strong>etcd</strong> - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.</p>
+<p>It stores all the masters and worker node information. It acts as a db of the cluster.</p>
+<p><strong>kube-scheduler</strong> - Scheduler is responsible for distributing containers across multiple nodes.</p>
+<p>It watches for newly created Pods with no assigned node, and selects a node for them to run on. </p>
+<p>Schedule the pod in the worker node and the kube-scheduler plays an key role.</p>
+<p><strong>kube-controller-manager</strong> - Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases.</p>
+<p>Node Controller - Responsible for noticing and responding when nodes go down.</p>
+<p>Replication Controller - Responsible for maintaining the correct number of pods for every replication controller object in the system.</p>
+<p>Endpoints Controller - Populates the Endpoints object (that is, joins Services &amp; Pods).</p>
+<p>Service Account &amp; Token Controller - Creates default accounts and API Access for new namespaces.</p>
+<p><strong>Cloud-controller-manager</strong> - A Kubernetes control plane component that embeds cloud-specific control logic.
+• It only runs controllers that are specific to your cloud provider. It is not present in on-premise kubernetes cluster. It is present for control planes GKE, AWS.
+• On-Premise Kubernetes clusters will not have this component.
+• Node controller: For checking the cloud provider to determine if a node has been deleted in the cloud after it stops responding
+• Route controller: For setting up routes in the underlying cloud infrastructure
+• Service controller: For creating, updating and deleting cloud provider load balancer
+• Many more controllers might be present and will differ from cloud to cloud based on that respective cloud Kubernetes Platform design and Integrations to their Cloud products.</p>
+<h4 id="worker-node">Worker Node.</h4>
+<p><strong>Container Runtime</strong> - Container Runtime is the underlying software where all Kubernetes components run.
+In GKE, the default runtime is containerd, but there are also options such as - Ubuntu with Containerd, Ubuntu with Docker, Windows.<br />
+In the cluster node pool the nodes will show the container option.</p>
+<p><strong>Kubelet</strong> - Kubelet is the agent that runs on every node in the cluster.
+This agent is responsible for making sure that containers are running in a Pod on a node.</p>
+<p><strong>Kube-Proxy</strong> - It is a network proxy that runs on each node in your cluster.
+It maintains network rules on nodes.
+In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.</p>
 <h4 id="pod">Pod.</h4>
 <p>In Kubernetes the target is to deploy the application in the form of container on worker nodes in the cluster. <br />
 The container image is needed. The container is encapsulated in Pods.<br />
