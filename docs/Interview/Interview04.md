@@ -37,6 +37,9 @@ When the service needs to handle 250 concurrent requests and each instance can e
 
 It is an example and it depends in CPU, request utilization, requests duration, startup time and configured limits.
 
+
+
+
 Why the concurrency matter?
 
 Too high - One instance can become CPU bound or exhaust the db connection.  
