@@ -8,7 +8,6 @@ BigQuery - Analytical queries, reporting and large-scale data analysis.
 
 ### Cloud run vs GKE.
 
-
 Cloud run is a fully managed Google cloud service for running containerized applications. Google manages the infrastructure and user needs to take care of the application and container image.  
 Example - We package the Spring boot application into the docker image and push it to the Artifact Registry and deploy it in cloud run.
 
@@ -73,5 +72,6 @@ How to reduce the cold start?
 Configure minimum instances - Keep one or more instances available to reduce the likelihood of cold start. It will increase the baseline cost.  
 
 spring boot startup - Avoid unnecessary dependencies and expensive initialization.  
+
 
 
