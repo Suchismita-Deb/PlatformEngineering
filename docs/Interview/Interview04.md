@@ -70,6 +70,8 @@ A spring boot application needs to start the JVM, initialize the spring beans an
 
 How to reduce the cold start?
 
-Configure minimum instances - Keep one or more instances available to reduce the likelihood of cold start. It will increase the baseline cost.   
+Configure minimum instances - Keep one or more instances available to reduce the likelihood of cold start. It will increase the baseline cost.  
+
 spring boot startup - Avoid unnecessary dependencies and expensive initialization.  
+
 
