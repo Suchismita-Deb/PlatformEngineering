@@ -76,5 +76,74 @@ Configure minimum instances - Keep one or more instances available to reduce the
 
 spring boot startup - Avoid unnecessary dependencies and expensive initialization.  
 
+CPU and memory configuration - Insufficient resources can increase startup time. Test different configurations instead of automatically choosing the largest instance.
+
+### Code to configure the minimum and maximum instances.
+
+Minimum instances - The number of instances to keep available according to the configured minimum-instance policy.
+
+Maximum instances - An upper scaling limit used to control capacity and cost.
+```bash
+gcloud run services update order-service \
+  --region=asia-south1 \
+  --min=1 \
+  --max=10
+```
+
+### Deploy the Cloud run without disrupting existing requests?
+
+Cloud Run creates a new immutable revision when you change the service configuration or deploy a new version of the application.
+
+The steps.
+Build and test the application.   
+Build a container image.  
+Push the image to Artifact Registry.  
+Deploy a new Cloud Run revision.  
+Run smoke tests and verify health.   
+Gradually shift traffic when appropriate.  
+Monitor errors and latency.  
+Roll back traffic to the previous revision if the new version is unhealthy.
+
+```bash
+gcloud run deploy order-service \
+  --image=ArtifactRegistry-Image \
+  --region=asia-south1 \
+  --no-traffic
+```
+
+In the new version, direct traffic to it using the appropriate Cloud Run traffic-management configuration.
+
+### When would you use Cloud Run Jobs instead of a Cloud Run service?
+
+
+The key difference is whether the workload must respond to requests or execute a task to completion.
+
+Cloud Run Service - responds to HTTP requests or supported event-driven invocations.
+
+Cloud Run Job - runs tasks that start, perform work and finish, either manually, on a schedule or through orchestration. Job tasks can be retried, and multiple tasks can run in parallel.
+
+### Design a Spring Boot application on Cloud Run.
+You have a Spring Boot REST API that receives sudden traffic spikes during business hours and almost no traffic at night.   
+Would you deploy it on Cloud Run or GKE? 
+
+For a stateless REST API with variable traffic, the best option Cloud Run because it offers managed infrastructure and automatic scaling without requiring me to manage a Kubernetes cluster.
+
+Configure scaling - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
