@@ -56,6 +56,35 @@ There are 100 linux system and use the python script to monitor the CPU and memo
 paramiko module in python, ssh to each system meaning 100 server and make the python code and divide the block in functions. Function1 ssh to the system, function2 to gather CPU, function3 to gather the information of CPU, function3 to send in the email.
 
 
+### What is SLI, SLO, SLA ?
+
+### What is the security group and how it manages traffic in SWA?
+
+Security Group is like a firewall and where we add the rules like inbound ports and outbound ports in the subnet.
+
+You need to give the access to the IP to SSH what to do using the security group?
+
+In case to allow the IP or the range of IP then /32 like that.
+
+### What is the elastic Ip and ephemeral IP?
+
+### How to architect a highly available system in the cloud platform in Kubernetes.
+
+The first thing to know like which kind of Kubernetes dealing with like PAAS or the IAAS like making it from the start and deploying in VM meaning everything is taken care under user control like the control manager or the master node. The alternate option is using the GKE its a PAAS and all are taken care by the GCP.
+
+Everything from the beginning like new project then starting the VPC, subnet. What will be the process?
+
+The first step is to create the VPC and the tier like 2 tier or 3 tier. In case 3 tier then segregate the subnet like public subnet and private subnets. The next step to route the private and the public subnet. The components that are exposed to the internet like the load balancer, ingress controllers and all are hosted in the public subnet.  
+In the private subnet we will host the VMs, GKE.
+The private subnet will only communicate with the public using the routers and the RBAC (Role Based Access Control) like the specific GKE will communicate with the database and the database will be hosted in the private subnet.
+
+The next step is to provision the resources in the GKE. The ingress controller, load balancer, outbound controllers firewall.
+
+In the specific yaml file of the deployment will mention the ingress controllers and policies.
+
+### Why docker is better than VMs ?
+
+### What are docker hardened image?
 
 
 

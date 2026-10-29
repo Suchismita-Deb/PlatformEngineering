@@ -29,6 +29,7 @@ nav:
       - Interview Part 3: Interview/Interview03.md
       - Interview Part 4: Interview/Interview04.md
       - Interview Part 5: Interview/Interview05.md
+      - Interview Part 6 Kubernetes Scenarios: Interview/Interview06.md
 
 markdown_extensions:
   - md_in_html
