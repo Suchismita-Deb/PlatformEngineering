@@ -31,8 +31,20 @@ There are multiple pods and each pods will have multiple container and each cont
 The StateLockError will give some Id and first the thing to know any internal work is going on with the id. The describe type of command to see any state is currently working in case no state working then use the state unlock command.
 
 
+### What is the difference between git pull and git fetch?
 
+git pull - It will fetch the changes and merge the changes to the current branch. The git pull command is a combination of git fetch and git merge. It retrieves the latest changes from the remote repository and automatically merges them into your current branch.
+git fetch - It will fetch the changes and it will not merge the changes to the current branch
 
+### what is the cgroup in linux? What OS or what flavor of linux you use?
+
+### What is bash rc in ubuntu?
+
+Bashrc is a script that is executed whenever a new terminal session is started in interactive mode. It is used to configure the shell environment, set environment variables, define aliases, and customize the behavior of the shell. The bashrc file is typically located in the user's home directory as ~/.bashrc.
+
+When there is a single terminal and when I open a new terminal then the bashrc will be executed and it will set the environment variables and the aliases. The bashrc is used to customize the shell environment for the user.
+
+### What are he steps to create highly available infrastructure using the Terraform ?
 
 
 
