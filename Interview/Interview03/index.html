@@ -1413,6 +1413,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#deployment-vs-statefulset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment vs StatefulSet.
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1478,6 +1489,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Interview06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Part 6 Kubernetes Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1514,6 +1553,17 @@
     <span class="md-ellipsis">
       
         Kubernetes workload controllers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-vs-statefulset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment vs StatefulSet.
       
     </span>
   </a>
@@ -1598,18 +1648,26 @@
 <p>StatefulSet - manages replicas that may require stable identities and persistent storage.</p>
 <p>DaemonSet - manages a node-oriented workload, typically one Pod per eligible node.</p>
 <p><strong>What is a StatefulSet?</strong></p>
-<p>A StatefulSet is a Kubernetes workload controller used for applications that need stable Pod identities, predictable naming, stable network identities, or persistent storage associated with individual replicas.
-<img alt="img.png" src="docs/images/Interview.Kubernetes/img.png" />
-For example, when database-1 is recreated, the replacement Pod normally keeps the name database-1 and refers to the same claim, rather than receiving a random Pod name and a different claim.</p>
-<p>Key StatefulSet features</p>
-<p>Stable Pod names: database-0, database-1, database-2.</p>
-<p>Stable ordinal identity: each replica has a predictable index.</p>
-<p>Stable network identity: commonly provided through a governing headless Service.</p>
-<p>Persistent storage: volumeClaimTemplates can create a separate PVC for each replica.</p>
-<p>Ordered deployment and scaling: the default behavior starts and stops replicas in ordinal order.</p>
-<p>Controlled updates: rolling updates can respect ordinal ordering and readiness.</p>
-<p>Identity survives Pod recreation: the Pod object may be replaced, but its ordinal-based identity remains predictable.</p>
-<p>Important: a StatefulSet does not automatically replicate database data, elect a leader, or guarantee application consistency. Those are responsibilities of the application or database operator.</p>
+<p>A StatefulSet is a Kubernetes workload controller used for applications that need stable Pod identities, predictable naming, stable network identities, or persistent storage associated with individual replicas.</p>
+<p><img alt="img.png" src="docs/images/Interview.Kubernetes/img.png" /></p>
+<p>For example, when database-1 is recreated, the replacement Pod normally keeps the name database-1 and refers to the same claim, rather than receiving a random Pod name and a different claim.</p>
+<p>Key StatefulSet features.<br />
+Stable Pod names - database-0, database-1, database-2.<br />
+Stable ordinal identity - Each replica has a predictable index.<br />
+Stable network identity - Commonly provided through a governing headless Service.<br />
+Persistent storage - VolumeClaimTemplates can create a separate PVC for each replica.<br />
+Ordered deployment and scaling - The default behavior starts and stops replicas in ordinal order. <br />
+Controlled updates - Rolling updates can respect ordinal ordering and readiness.<br />
+Identity survives Pod recreation - The Pod object may be replaced, but its ordinal-based identity remains predictable.<br />
+Important - A StatefulSet does not automatically replicate database data, elect a leader, or guarantee application consistency. Those are responsibilities of the application or database operator.</p>
+<h3 id="deployment-vs-statefulset">Deployment vs StatefulSet.</h3>
+<p>Deployment used for stateless applications and a StatefulSet for applications that need stable identity or persistent storage tied to individual replicas. </p>
+<p>The key difference is not whether your application stores data in a database. It is whether each Pod needs a stable identity and storage across rescheduling.</p>
+<p>Deployments - Stateless workload - Use when any replica can handle any request and Pods are interchangeable. Example - Spring Boot REST APIs, frontend application, authentication service.</p>
+<p>StatefulSet - Stateful workload - Use when each replica needs a stable identity, stable network address, or its own persistent storage. Examples - Kafka brokers, ZooKeeper nodes, database clusters.</p>
+<p>The task to deploy 3 replicas of the application.</p>
+<p>In the Deployment meaning the Kubernetes deployment will be in pods and pods are interchangeable. A replacement can receive a new name and IP address. It uses the persistent volume and not automatically one per replica. In terms of scaling it is the independent replicas.</p>
+<p>In the StatefulSet meaning the deployment is done in Volume or PVC(PersistentVolumeClaim) and Each pod has a predictable ordinal identity meaning name and can retain its associated storage when recreated. It commonly uses a separate PVC per replica. In terms of scaling it support ordered creation and termination.</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">solution</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
