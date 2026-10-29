@@ -31,6 +31,7 @@ nav:
       - Interview Part 5: Interview/Interview05.md
       - Interview Part 6 Kubernetes Scenarios: Interview/Interview06.md
 
+      - Interview Part 6 Cloud Run: Interview/Interview06CloudRun.md
 markdown_extensions:
   - md_in_html
   - pymdownx.highlight:
